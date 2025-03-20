@@ -1,0 +1,23 @@
+@import url(assets/params/fonts/Panton/stylesheet.css);
+
+@font-face {
+    font-family: 'Gennaro';
+    src: url(assets/params/fonts/GENNARO.woff2) format('woff2'),
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+      font-size: 0.87rem;
+    }
+}
