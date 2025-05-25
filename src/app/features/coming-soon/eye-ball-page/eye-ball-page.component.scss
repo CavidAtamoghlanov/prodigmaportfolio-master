@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 .loading-page {
     width: 100vw;
     height: 100vh;
@@ -38,16 +40,16 @@
     z-index: 3;
 }
 
-.coming-soon-container{
+.main-container{
     position: absolute;
     top: 0;
     width: 1440px;
     height: 100%;
 }
 
-.coming-soon{
+.coming-soon-container{
     position: absolute;
-    top: 214px;
+    top: 223px;
     left: 70px;
     z-index: 4;
     font-family: 'Gennaro';
@@ -67,31 +69,30 @@
         transition: font-size 0.5s ease-in-out, line-height 0.5s ease-in-out;
     }
 
-}
-
-.where{
-    position: absolute;
-    top: 334px;
-    left: 158px;
-    font-size: 1.4rem;
-    z-index: 5;
-    padding: 0 1.5rem;
-    font-family: 'Panton-Regular';
-    background-color: white;
-    color: black;
-    transition: top 0.5s ease-in-out, left 0.5s ease-in-out, font-size 0.5s ease-in-out, padding 0.5s ease-in-out;
-}
-
-.tape{
-    position: absolute;
-    top: 223px;
-    left: -49px;
-    width: 572px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, left 0.5s ease-in-out, width 0.5s ease-in-out;
-
-    img {
-        width: 100%;
+    .where{
+        position: absolute;
+        top: 129px;
+        left: 88px;
+        font-size: 1.4rem;
+        z-index: 5;
+        padding: 0 1.5rem;
+        font-family: 'Panton-Regular';
+        background-color: white;
+        color: black;
+        transition: top 0.5s ease-in-out, left 0.5s ease-in-out, font-size 0.5s ease-in-out, padding 0.5s ease-in-out;
+    }
+    
+    .tape{
+        position: absolute;
+        top: 9px;
+        left: -119px;
+        width: 572px;
+        z-index: 5;
+        transition: top 0.5s ease-in-out, left 0.5s ease-in-out, width 0.5s ease-in-out;
+    
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -107,7 +108,20 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.screen-container{
+    display: none;
+    position: absolute;
+    top: 65%;
+    left: 35%;
+    z-index: 4;
+    font-family: 'Panton-Regular';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: all 0.5s ease-in-out;
 }
 
 .press, #Vector, #Vector_2, .on-keyboard {
@@ -134,249 +148,164 @@
     transform: translateX(10px);
 }
 
-.file-icon{
+.file-container{
+    width: 532px;
+    height: 739px;
     position: absolute;
-    top: 60px;
-    right: 119px;
-    z-index: 6;
-    transition: top 0.5s, right 0.5s, transform 0.5s;
-}
+    top: 0;
+    right: 70px;
+    transition: all 0.5s ease-in-out;
 
-.skotch{
-    position: absolute;
-    top: 0px;
-    right: 68px;
-    z-index: 7;
-    transition: top 0.5s, right 0.5s, transform 0.5s;
-}
-
-.video5-container{
-    position: absolute;
-    top: 338px;
-    right: 125px;
-    rotate: 2deg;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, rotate 0.5s ease-in-out;
-
-    .video-5{
-        position: absolute;
-        top: 1.5rem;
-        right: 3rem;
-        width: 8.4rem;
-        height: 12.4rem;
-        z-index: 5;
-        rotate: 9deg;
-        object-fit: cover;
-    }
-
-    .plyonka-5{
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 5;
-    }
-}
-
-.video4-container{
-    position: absolute;
-    top: 242px;
-    right: 207px;
-    rotate: -4deg;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, z-index 0.5s ease-in-out;
-
-    .video-4{
-        position: absolute;
-        top: 1.5rem;
-        right: 3rem;
-        width: 8.4rem;
-        height: 12.4rem;
-        z-index: 5;
-        rotate: -9deg;
-        object-fit: cover;
-    }
-
-    .plyonka-4{
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 5;
-    }
-}
-
-.video3-container{
-    position: absolute;
-    top: 141px;
-    right: 123px;
-    rotate: 2deg;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, rotate 0.5s ease-in-out;
-
-    .video-3{
-        position: absolute;
-        top: 1.5rem;
-        right: 3rem;
-        width: 8.4rem;
-        height: 12.4rem;
-        z-index: 5;
-        rotate: 9deg;
-        object-fit: cover;
-    }
-
-    .plyonka-3{
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 5;
-    }
-}
-
-.video2-container{
-    position: absolute;
-    top: 161px;
-    right: 206px;
-    rotate: 4deg;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, rotate 0.5s ease-in-out;
-
-    .video-2{
-        position: absolute;
-        top: 1.5rem;
-        right: 3rem;
-        width: 8.4rem;
-        height: 12.4rem;
-        z-index: 5;
-        rotate: 9deg;
-        object-fit: cover;
-    }
-
-    .plyonka-2{
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 5;
-    }
-}
-
-.video1-container{
-    position: absolute;
-    top: 102px;
-    right: 279px;
-    rotate: -8deg;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out;
-
-    .video-1{
-        position: absolute;
-        top: 1.5rem;
-        right: 3rem;
-        width: 8.4rem;
-        height: 12.4rem;
-        z-index: 5;
-        rotate: -9deg;
-        object-fit: cover;
-    }
-
-    .plyonka-1{
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 5;
-    }
-}
-
-.duct-tape-container{
-    position: absolute;
-    top: 538px;
-    right: 119px;
-    width: 226px;
-    height: 143px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, width 0.5s ease-in-out;
-
-    img{
+    .grid{
         width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        transition: all 0.5s ease-in-out;
     }
-}
-
-.logo-pin-container{
-    position: absolute;
-    top: 548px;
-    right: 259px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, z-index 0.5s ease-in-out, rotate 0.5s ease-in-out;
-}
-
-.prodigma-org-container{
-    position: absolute;
-    width: 164px;
-    top: 625px;
-    right: 368px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, width 0.5s ease-in-out, rotate 0.5s ease-in-out;
-
-    img {
-        width: 100%;
+    
+    .file-icon{
+        width: 452px;
+        position: absolute;
+        top: 60px;
+        right: 49px;
+        z-index: 6;
+        transition: all 0.5s ease-in-out;
     }
-}
+    
+    .skotch{
+        position: absolute;
+        top: 0px;
+        right: -1px;
+        z-index: 7;
+        transition: all 0.5s ease-in-out;
+    }
 
-.prodigma-pin-container{
-    position: absolute;
-    top: 511px;
-    right: 374px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, rotate 0.5s ease-in-out;
-}
+    .plyonka{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 5;
+    }
 
-.video-pin-container{
-    position: absolute;
-    top: 519px;
-    right: 276px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out;
-}
-
-.photo-pin-container{
-    position: absolute;
-    top: 509px;
-    right: 193px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out;
-}
-
-.design-pin-container{
-    position: absolute;
-    top: 511px;
-    right: 108px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, rotate 0.5s ease-in-out;
-}
-
-.dev-pin-container{
-    position: absolute;
-    top: 566px;
-    right: 163px;
-    z-index: 5;
-    transition: top 0.5s ease-in-out, right 0.5s ease-in-out, rotate 0.5s ease-in-out;
+    $videos: (
+      1: (102px, 209px, -8deg, -9deg),
+      2: (161px, 136px, 4deg, 9deg),
+      3: (141px, 53px, 2deg, 9deg),
+      4: (242px, 137px, -4deg, -9deg),
+      5: (338px, 55px, 2deg, 9deg)
+    );
+    
+    @each $num, $values in $videos {
+      .video#{$num}-container {
+        position: absolute;
+        top: list.nth($values, 1);
+        right: list.nth($values, 2);
+        rotate: list.nth($values, 3);
+        z-index: 5;
+        transition: all 0.5s ease-in-out;
+    
+        .video-#{$num} {
+          position: absolute;
+          top: 24px;
+          right: 48px;
+          width: 136px;
+          height: 201px;
+          z-index: 5;
+          rotate: list.nth($values, 4);
+          object-fit: cover;
+        }
+      }
+    }
+      
+    .pin-container {
+        position: absolute;
+        height: auto;
+        z-index: 5;
+        transition: all 0.5s ease-in-out;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    .duct-tape-container {
+        @extend .pin-container;
+        width: 226px;
+        top: 538px;
+        right: 50px;
+    }
+    
+    .logo-pin-container {
+        @extend .pin-container;
+        width: 103px;
+        top: 570px;
+        right: 200px;
+    }
+    
+    .prodigma-org-container {
+        @extend .pin-container;
+        width: 164px;
+        top: 625px;
+        right: 299px;
+    }
+    
+    .prodigma-pin-container {
+        @extend .pin-container;
+        width: 120px;
+        top: 500px;
+        right: 305px;
+    }
+    
+    .video-pin-container {
+        @extend .pin-container;
+        width: 125px;
+        top: 540px;
+        right: 210px;
+    }
+    
+    .photo-pin-container {
+        @extend .pin-container;
+        width: 125px;
+        top: 530px;
+        right: 125px;
+    }
+    
+    .design-pin-container {
+        @extend .pin-container;
+        width: 125px;
+        top: 520px;
+        right: 40px;
+    }
+    
+    .dev-pin-container {
+        @extend .pin-container;
+        width: 125px;
+        top: 580px;
+        right: 110px;
+    }
 }
 
 .links-container{
     position: absolute;
-    bottom: 2rem;
+    bottom: 30px;
     width: 1440px;
     height: 65px;
     z-index: 4;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     font-family: 'Panton-Regular';
     opacity: 0.7;
     transition: opacity 0.5s ease-in-out;
 }
 
 .links-container > div {
-    width: 20%;
+    width: 45%;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .prodigma-mmc-2024,
@@ -404,4 +333,286 @@
 .dribble:hover,
 .helloprodigmaorg:hover {
     color: #d33d25;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-container {
+        width: 768px !important;
+    }
+
+    .coming{
+        font-size: 15rem !important;
+        line-height: 7.5rem !important;
+    }
+    
+    .soon{
+        font-size: 7.5rem !important;
+        line-height: 4rem !important;
+    }
+
+    .where{
+        top: 68px !important;
+        left: 45px !important;
+        font-size: 0.7rem !important;
+        padding: 0 0.75rem !important;
+    }
+
+    .tape{
+        left: -59px !important;
+        width: 296px !important;
+    }
+
+    .file-container {
+        position: absolute;
+        top: 116px;
+        right: 78px;
+        width: 343px;
+        height: 497px;
+
+        .file-icon {
+            position: absolute;
+            top: 45px;
+            right: 36px;
+            width: 280px;
+            height: 416px;
+            z-index: 6;
+            transition: all 0.5s ease-in-out;
+        }
+        .skotch {
+            width: 158px;
+            height: auto;
+        }
+
+
+        .video1-container{
+            position: absolute;
+            top: 75px;
+            right: 138px;
+            width: 147px;
+            height: 161px;
+            rotate: -3deg;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+
+            .video-1{
+                top: 16px;
+                right: 32px;
+                width: 84px;
+                height: 128px;
+            }
+        
+        }
+
+        .video2-container{
+            top: 119px;
+            right: 100px;
+            width: 147px;
+            height: 161px;
+            rotate: 9deg;
+        
+            img{
+                width: 100%;
+                height: auto;
+            }
+        
+            .video-2{
+                top: 16px;
+                right: 32px;
+                width: 84px;
+                height: 128px;
+            }
+        }
+
+        .video3-container{
+            top: 106px;
+            right: 40px;
+            width: 147px;
+            height: 161px;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+
+            .video-3{
+                top: 16px;
+                right: 32px;
+                width: 84px;
+                height: 128px;
+            }
+        
+        }
+
+        .video4-container{
+            top: 165px;
+            right: 98px;
+            width: 147px;
+            height: 161px;
+            rotate: 1deg;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+
+            .video-4{
+                top: 16px;
+                right: 32px;
+                width: 84px;
+                height: 128px;
+            }
+        
+        }
+
+        .video5-container{
+            top: 230px;
+            right: 41px;
+            width: 147px;
+            height: 161px;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+
+            .video-5{
+                top: 16px;
+                right: 32px;
+                width: 84px;
+                height: 128px;
+            }
+        
+        }
+
+        .duct-tape-container{
+            width: 147px;
+            top: 363px;
+            right: 36px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        .logo-pin-container{
+            width: 76px;
+            top: 376px;
+            right: 126px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .prodigma-org-container{
+            width: 102px;
+            top: 412px;
+            right: 191px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .prodigma-pin-container{
+            width: 89px;
+            top: 325px;
+            right: 194px; 
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .video-pin-container{
+            width: 93px;
+            top: 354px;
+            right: 132px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        .photo-pin-container{
+            width: 92px;
+            top: 350px;
+            right: 83px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        .design-pin-container{
+            width: 92px;
+            height: auto;
+            top: 347px;
+            right: 31px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        .dev-pin-container{
+            width: 92px;
+            top: 384px;
+            right: 68px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .p-btn-container{
+        display: none;
+    }
+
+    .screen-container{
+        display: block;
+    }
+
+    .links-container {
+        width: 768px;
+        bottom: 104px;
+    }
+
+    .links-container > div {
+        flex-direction: column;
+    }
+
+    .get-in-touch-parent,
+    .prodigma-mmc-2024-parent {
+        display: flex;
+        justify-content: end;
+    }
+
+    .portfolio-parent,
+    .prodigma-mmc-2024-parent{
+        margin-top: 24px;
+    }
+
+    .prodigma-mmc-2024,
+    .all-rights-reserved {
+        text-align: start;
+    }
+
 }

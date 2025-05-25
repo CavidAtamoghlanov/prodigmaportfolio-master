@@ -1,63 +1,63 @@
 <div class="loading-page">
-    <video autoplay loop muted class="eye-ball">
+    <video autoplay loop [muted]="true" class="eye-ball">
         <source src="/assets/params/images/coming-soon/eye-ball-video.mp4" type="video/mp4">
     </video>
-    <video autoplay loop muted class="dust-grain">
+    <video autoplay loop [muted]="true" class="dust-grain">
         <source src="/assets/params/images/coming-soon/loading-video.mp4" type="video/mp4">
     </video>
-    <video autoplay loop muted class="light-overlay">
+    <video autoplay loop [muted]="true" class="light-overlay">
         <source src="/assets/params/images/coming-soon/light-leaks-overlay.mp4" type="video/mp4">
     </video>
 
-    <div class="coming-soon-container">
-        <div class="coming-soon">
+    <div class="main-container">
+        <div class="coming-soon-container">
             <div class="coming">Coming</div>
             <div class="soon">soon</div>
+            <div class="where">Where Vision Meets Innovation</div>
+            <div class="tape">
+                <img src="/assets/params/images/coming-soon/tape.gif" alt="">
+            </div>
         </div>
-        <div class="where">Where Vision Meets Innovation</div>
-        <div class="tape">
-            <img src="/assets/params/images/coming-soon/tape.gif" alt="">
-        </div>
-        <img class="skotch" src="/assets/params/images/coming-soon/skotch.png" alt="">
+        
         <div class="file-container">
             <div class="video5-container">
                 <img src="/assets/params/images/coming-soon/frame-5.svg" alt="">
-                <video autoplay loop muted class="video-5">
+                <video autoplay loop [muted]="true" class="video-5">
                     <source src="/assets/params/images/coming-soon/video-5.mp4" type="video/mp4">
                 </video>
-                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka-5" alt="">
+                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka" alt="">
                 <!-- <img src="/assets/params/images/coming-soon/texture-5.png" class="plyonka-5" alt=""> -->
             </div>
             <div class="video4-container">
                 <img src="/assets/params/images/coming-soon/frame-4.svg" alt="">
-                <video autoplay loop muted class="video-4">
+                <video autoplay loop [muted]="true" class="video-4">
                     <source src="/assets/params/images/coming-soon/video-4.mp4" type="video/mp4">
                 </video>
-                <img src="/assets/params/images/coming-soon/plyonka-4.png" class="plyonka-4" alt="">
+                <img src="/assets/params/images/coming-soon/plyonka-4.png" class="plyonka" alt="">
                 <!-- <img src="/assets/params/images/coming-soon/texture-4.png" class="plyonka-4" alt=""> -->
             </div>
             <div class="video3-container">
                 <img src="/assets/params/images/coming-soon/frame-5.svg" alt="">
-                <video autoplay loop muted class="video-3">
+                <video autoplay loop [muted]="true" class="video-3">
                     <source src="/assets/params/images/coming-soon/video-3.mp4" type="video/mp4">
                 </video>
-                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka-3" alt="">
+                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka" alt="">
                 <!-- <img src="/assets/params/images/coming-soon/texture-5.png" class="plyonka-3" alt=""> -->
             </div>
             <div class="video2-container">
                 <img src="/assets/params/images/coming-soon/frame-5.svg" alt="">
-                <video autoplay loop muted class="video-2">
+                <video autoplay loop [muted]="true" class="video-2">
                     <source src="/assets/params/images/coming-soon/video-2.mp4" type="video/mp4">
                 </video>
-                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka-2" alt="">
+                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka" alt="">
                 <!-- <img src="/assets/params/images/coming-soon/texture-5.png" class="plyonka-2" alt=""> -->
             </div>
             <div class="video1-container">
                 <img src="/assets/params/images/coming-soon/frame-4.svg" class="frame-prodigma" alt="">
-                <video autoplay loop muted class="video-1">
+                <video autoplay loop [muted]="true" class="video-1">
                     <source src="/assets/params/images/coming-soon/video-1.mp4" type="video/mp4">
                 </video>
-                <img src="/assets/params/images/coming-soon/plyonka-4.png" class="plyonka-1" alt="">
+                <img src="/assets/params/images/coming-soon/plyonka-4.png" class="plyonka" alt="">
                 <!-- <img src="/assets/params/images/coming-soon/texture-4.png" class="plyonka-1" alt=""> -->
             </div>
             <div class="duct-tape-container">
@@ -85,7 +85,9 @@
                 <img src="/assets/params/images/coming-soon/dev-pin.png" alt="">
             </div>
 
+            <img class="skotch" src="/assets/params/images/coming-soon/skotch.png" alt="">
     		<img class="file-icon" alt="" src="/assets/params/images/coming-soon/file.png">
+            <img class="grid" alt="" src="/assets/params/images/coming-soon/grid.svg">
     		
         </div>
 
@@ -101,35 +103,43 @@
                 
              <span class="on-keyboard">on keyboard</span>
         </div>
+
+        <div class="screen-container">
+            <span>Press and hold the screen</span>
+        </div>
     </div>
 
     <div class="links-container">
-        <div class="social-media-parent">
-            <div>
-                <div class="social-media">SOCIAL MEDIA</div>
-                <span class="instagram">INSTAGRAM</span>
-                <hr class="midline">
-                <span class="linkedin">LINKEDIN</span>
+        <div>
+            <div class="social-media-parent">
+                <div>
+                    <div class="social-media">SOCIAL MEDIA</div>
+                    <span class="instagram"><a href="https://www.instagram.com/prodigma.media">INSTAGRAM</a>  </span>
+                    <hr class="midline">
+                    <span class="linkedin"><a href="https://www.linkedin.com/company/prodigmamedia">LINKEDIN</a></span>
+                </div>
+            </div>
+            <div class="portfolio-parent">
+                <div>
+                    <div class="social-media">PORTFOLIO</div>
+                    <span class="behance"><a href="https://www.behance.net/Prodigma">BEHANCE</a></span>
+                    <hr class="midline">
+                    <span class="dribble"><a href="https://dribbble.com/Prodigma">DRIBBLE</a></span>
+                </div>
             </div>
         </div>
-        <div class="portfolio-parent">
-            <div>
-                <div class="social-media">PORTFOLIO</div>
-                <span class="behance">BEHANCE</span>
-                <hr class="midline">
-                <span class="dribble">DRIBBLE</span>
+        <div>
+            <div class="get-in-touch-parent">
+                <div>
+                    <div class="social-media">GET IN TOUCH</div>
+                    <div class="helloprodigmaorg">HELLO&#64;PRODIGMA.ORG</div>
+                </div>
             </div>
-        </div>
-        <div class="get-in-touch-parent">
-            <div>
-                <div class="social-media">GET IN TOUCH</div>
-                <div class="helloprodigmaorg">HELLO&#64;PRODIGMA.ORG</div>
-            </div>
-        </div>
-        <div class="prodigma-mmc-2024-parent">
-            <div>
-                <div class="prodigma-mmc-2024">© PRODIGMA MMC 2024</div>
-                <div class="all-rights-reserved">ALL RIGHTS RESERVED</div>
+            <div class="prodigma-mmc-2024-parent">
+                <div>
+                    <div class="prodigma-mmc-2024">© PRODIGMA MMC 2024</div>
+                    <div class="all-rights-reserved">ALL RIGHTS RESERVED</div>
+                </div>
             </div>
         </div>
     </div>

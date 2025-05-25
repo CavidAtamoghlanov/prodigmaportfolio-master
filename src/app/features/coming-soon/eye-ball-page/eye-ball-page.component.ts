@@ -8,24 +8,43 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
   styleUrl: './eye-ball-page.component.scss',
 })
 export class EyeBallPageComponent {
-
+  viewportWidth = window.innerWidth;
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'p' || event.key === 'P') {
-      this.changeStyle();
+    if (this.viewportWidth > 768) {
+      if (event.key === 'p' || event.key === 'P') {
+        this.changeStyle();
+      }
     }
   }
 
   @HostListener('window:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent) {
-    if (event.key === 'p' || event.key === 'P') {
-      this.resetStyle();
+    if (this.viewportWidth > 768) {
+      if (event.key === 'p' || event.key === 'P') {
+        this.resetStyle();
+      }
+    }
+  }
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart() {
+    if (this.viewportWidth <= 768) {
+      this.changeStyleForTablet();
+    }
+  }
+
+  @HostListener('touchend', ['$event'])
+  onTouchEnd() {
+    if (this.viewportWidth <= 768) {
+      this.resetStyleForTablet();
     }
   }
 
   changeStyle() {
+    const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
     const video5 = this.el.nativeElement.querySelector('.video5-container');
     const video4 = this.el.nativeElement.querySelector('.video4-container');
@@ -43,7 +62,7 @@ export class EyeBallPageComponent {
     const logoPin = this.el.nativeElement.querySelector('.logo-pin-container');
     const pBtn = this.el.nativeElement.querySelector('.p-btn-container');
     const links = this.el.nativeElement.querySelector('.links-container');
-    const comingSoon = this.el.nativeElement.querySelector('.coming-soon');
+    const comingSoon = this.el.nativeElement.querySelector('.coming-soon-container');
     const where = this.el.nativeElement.querySelector('.where');
     const tape = this.el.nativeElement.querySelector('.tape');
     const coming = this.el.nativeElement.querySelector('.coming');
@@ -51,14 +70,18 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'top', '-720px');
     this.renderer.setStyle(file, 'right', '-238px');
     this.renderer.setStyle(file, 'transform', 'rotate(-90deg)');
+    this.renderer.setStyle(fileContainer, 'width', '1440px');
+    this.renderer.setStyle(fileContainer, 'height', '100vh');
+    this.renderer.setStyle(fileContainer, 'top', '0');
+    this.renderer.setStyle(fileContainer, 'right', '0');
     this.renderer.setStyle(video5, 'top', '317px');
     this.renderer.setStyle(video5, 'right', '212px');
     this.renderer.setStyle(video5, 'rotate', '18deg');
-    this.renderer.setStyle(video4, 'top', '696px');
-    this.renderer.setStyle(video4, 'right', '125px');
+    this.renderer.setStyle(video4, 'top', 'calc(100% - 300px');
+    this.renderer.setStyle(video4, 'right', '140px');
     this.renderer.setStyle(video4, 'z-index', '6');
-    this.renderer.setStyle(video3, 'top', '670px');
-    this.renderer.setStyle(video3, 'right', '742px');
+    this.renderer.setStyle(video3, 'top', '750px');
+    this.renderer.setStyle(video3, 'right', '750px');
     this.renderer.setStyle(video3, 'rotate', '-27deg');
     this.renderer.setStyle(video2, 'top', '490px');
     this.renderer.setStyle(video2, 'right', '1076px');
@@ -71,36 +94,41 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'top', '68px');
     this.renderer.setStyle(prodigmaOrg, 'right', '63px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '30deg');
+    this.renderer.setStyle(prodigmaPin, 'width', '153px');
     this.renderer.setStyle(prodigmaPin, 'top', '483px');
     this.renderer.setStyle(prodigmaPin, 'right', '643px');
     this.renderer.setStyle(prodigmaPin, 'rotate', '-51deg');
+    this.renderer.setStyle(videoPin, 'width', '162px');
     this.renderer.setStyle(videoPin, 'top', '454px');
     this.renderer.setStyle(videoPin, 'right', '1223px');   
+    this.renderer.setStyle(photoPin, 'width', '162px');
     this.renderer.setStyle(photoPin, 'top', '96px');
     this.renderer.setStyle(photoPin, 'right', '590px');
-    this.renderer.setStyle(designPin, 'top', '607px');
-    this.renderer.setStyle(designPin, 'right', '735px');
+    this.renderer.setStyle(designPin, 'width', '162px');
+    this.renderer.setStyle(designPin, 'top', '680px');
+    this.renderer.setStyle(designPin, 'right', '720px');
     this.renderer.setStyle(designPin, 'rotate', '45deg');
-    this.renderer.setStyle(devPin, 'top', '232px');
-    this.renderer.setStyle(devPin, 'right', '268px');
+    this.renderer.setStyle(devPin, 'width', '162px');
+    this.renderer.setStyle(devPin, 'top', '220px');
+    this.renderer.setStyle(devPin, 'right', '260px');
     this.renderer.setStyle(devPin, 'rotate', '30deg');
-    this.renderer.setStyle(ductTape, 'top', '595px');
+    this.renderer.setStyle(ductTape, 'width', '678px');
+    this.renderer.setStyle(ductTape, 'top', 'calc(100% - 429px)');
     this.renderer.setStyle(ductTape, 'right', '0');
-    this.renderer.setStyle(ductTape, 'width', '566px');
-    this.renderer.setStyle(logoPin, 'top', '677px');
-    this.renderer.setStyle(logoPin, 'right', '281px');
+    this.renderer.setStyle(logoPin, 'top', 'calc(100% - 310px)');
+    this.renderer.setStyle(logoPin, 'right', '320px');
     this.renderer.setStyle(logoPin, 'z-index', '7');
-    this.renderer.setStyle(logoPin, 'rotate', '-27deg');
+    this.renderer.setStyle(logoPin, 'rotate', '-45deg');
     this.renderer.setStyle(pBtn, 'opacity', '0');
     this.renderer.setStyle(links, 'opacity', '0');
     this.renderer.setStyle(comingSoon, 'top', '53px');
-    this.renderer.setStyle(where, 'top', '136px');
-    this.renderer.setStyle(where, 'left', '127px');
+    this.renderer.setStyle(where, 'top', '83px');
+    this.renderer.setStyle(where, 'left', '57px');
     this.renderer.setStyle(where, 'font-size', '1rem');
     this.renderer.setStyle(where, 'padding', '0 0.7rem');
-    this.renderer.setStyle(tape, 'top', '60px');
-    this.renderer.setStyle(tape, 'left', '-33px');
     this.renderer.setStyle(tape, 'width', '423px');
+    this.renderer.setStyle(tape, 'top', '7px');
+    this.renderer.setStyle(tape, 'left', '-103px');
     this.renderer.setStyle(coming, 'font-size', '20rem');
     this.renderer.setStyle(coming, 'line-height', '10rem');
     this.renderer.setStyle(soon, 'font-size', '10rem');
@@ -108,6 +136,7 @@ export class EyeBallPageComponent {
   }
 
   resetStyle() {
+    const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
     const video5 = this.el.nativeElement.querySelector('.video5-container');
     const video4 = this.el.nativeElement.querySelector('.video4-container');
@@ -125,68 +154,224 @@ export class EyeBallPageComponent {
     const logoPin = this.el.nativeElement.querySelector('.logo-pin-container');
     const pBtn = this.el.nativeElement.querySelector('.p-btn-container');
     const links = this.el.nativeElement.querySelector('.links-container');
-    const comingSoon = this.el.nativeElement.querySelector('.coming-soon');
+    const comingSoon = this.el.nativeElement.querySelector('.coming-soon-container');
     const where = this.el.nativeElement.querySelector('.where');
     const tape = this.el.nativeElement.querySelector('.tape');
     const coming = this.el.nativeElement.querySelector('.coming');
     const soon = this.el.nativeElement.querySelector('.soon');
+    this.renderer.setStyle(fileContainer, 'width', '532px');
+    this.renderer.setStyle(fileContainer, 'height', '739px');
+    this.renderer.setStyle(fileContainer, 'top', '0');
+    this.renderer.setStyle(fileContainer, 'right', '70px');
     this.renderer.setStyle(file, 'top', '60px');
-    this.renderer.setStyle(file, 'right', '119px');
+    this.renderer.setStyle(file, 'right', '50px');
     this.renderer.setStyle(file, 'transform', 'rotate(0deg)');
     this.renderer.setStyle(video5, 'top', '338px');
-    this.renderer.setStyle(video5, 'right', '125px');
+    this.renderer.setStyle(video5, 'right', '56px');
     this.renderer.setStyle(video5, 'rotate', '2deg');
     this.renderer.setStyle(video4, 'top', '242px');
-    this.renderer.setStyle(video4, 'right', '207px');
+    this.renderer.setStyle(video4, 'right', '138px');
     this.renderer.setStyle(video4, 'z-index', '5');
     this.renderer.setStyle(video3, 'top', '141px');
-    this.renderer.setStyle(video3, 'right', '123px');
+    this.renderer.setStyle(video3, 'right', '54px');
     this.renderer.setStyle(video3, 'rotate', '2deg');
     this.renderer.setStyle(video2, 'top', '161px');
-    this.renderer.setStyle(video2, 'right', '206px');
+    this.renderer.setStyle(video2, 'right', '137px');
     this.renderer.setStyle(video2, 'rotate', '4deg');
     this.renderer.setStyle(video1, 'top', '102px');
-    this.renderer.setStyle(video1, 'right', '279px');
-    this.renderer.setStyle(skotch, 'top', '0px');
-    this.renderer.setStyle(skotch, 'right', '68px');
+    this.renderer.setStyle(video1, 'right', '210px');
+    this.renderer.setStyle(skotch, 'top', '0');
+    this.renderer.setStyle(skotch, 'right', '-1px');
     this.renderer.setStyle(prodigmaOrg, 'width', '164px');
     this.renderer.setStyle(prodigmaOrg, 'top', '625px');
-    this.renderer.setStyle(prodigmaOrg, 'right', '368px');
+    this.renderer.setStyle(prodigmaOrg, 'right', '299px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '0deg');
-    this.renderer.setStyle(prodigmaPin, 'top', '511px');
-    this.renderer.setStyle(prodigmaPin, 'right', '374px');
+    this.renderer.setStyle(prodigmaPin, 'width', '120px');
+    this.renderer.setStyle(prodigmaPin, 'top', '510px');
+    this.renderer.setStyle(prodigmaPin, 'right', '305px');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
-    this.renderer.setStyle(videoPin, 'top', '519px');
-    this.renderer.setStyle(videoPin, 'right', '276px');
-    this.renderer.setStyle(photoPin, 'top', '509px');
-    this.renderer.setStyle(photoPin, 'right', '193px');
-    this.renderer.setStyle(designPin, 'top', '511px');
-    this.renderer.setStyle(designPin, 'right', '108px');
+    this.renderer.setStyle(videoPin, 'width', '125px');
+    this.renderer.setStyle(videoPin, 'top', '540px');
+    this.renderer.setStyle(videoPin, 'right', '210px');
+    this.renderer.setStyle(photoPin, 'width', '125px');
+    this.renderer.setStyle(photoPin, 'top', '530px');
+    this.renderer.setStyle(photoPin, 'right', '125px');
+    this.renderer.setStyle(designPin, 'width', '125px');
+    this.renderer.setStyle(designPin, 'top', '520px');
+    this.renderer.setStyle(designPin, 'right', '40px');
     this.renderer.setStyle(designPin, 'rotate', '0deg');
-    this.renderer.setStyle(devPin, 'top', '566px');
-    this.renderer.setStyle(devPin, 'right', '163px');
+    this.renderer.setStyle(devPin, 'width', '125px');
+    this.renderer.setStyle(devPin, 'top', '580px');
+    this.renderer.setStyle(devPin, 'right', '110px');
     this.renderer.setStyle(devPin, 'rotate', '-3deg');
-    this.renderer.setStyle(ductTape, 'top', '538px');
-    this.renderer.setStyle(ductTape, 'right', '119px');
     this.renderer.setStyle(ductTape, 'width', '226px');
-    this.renderer.setStyle(logoPin, 'top', '548px');
-    this.renderer.setStyle(logoPin, 'right', '259px');
+    this.renderer.setStyle(ductTape, 'top', '538px');
+    this.renderer.setStyle(ductTape, 'right', '50px');
+    this.renderer.setStyle(logoPin, 'top', '570px');
+    this.renderer.setStyle(logoPin, 'right', '200px');
     this.renderer.setStyle(logoPin, 'z-index', '5');
     this.renderer.setStyle(logoPin, 'rotate', '0deg');
     this.renderer.setStyle(pBtn, 'opacity', '0.7');
     this.renderer.setStyle(links, 'opacity', '0.7');
-    this.renderer.setStyle(comingSoon, 'top', '214px');
-    this.renderer.setStyle(where, 'top', '334px');
-    this.renderer.setStyle(where, 'left', '158px');
+    this.renderer.setStyle(comingSoon, 'top', '223px');
+    this.renderer.setStyle(where, 'top', '129px');
+    this.renderer.setStyle(where, 'left', '88px');
     this.renderer.setStyle(where, 'font-size', '1.4rem');
     this.renderer.setStyle(where, 'padding', '0 1.5rem');
-    this.renderer.setStyle(tape, 'top', '223px');
     this.renderer.setStyle(tape, 'width', '572px');
-    this.renderer.setStyle(tape, 'left', '-49px');
+    this.renderer.setStyle(tape, 'top', '9px');
+    this.renderer.setStyle(tape, 'left', '-119px');
     this.renderer.setStyle(coming, 'font-size', '30rem');
     this.renderer.setStyle(coming, 'line-height', '15rem');
     this.renderer.setStyle(soon, 'font-size', '15rem');
     this.renderer.setStyle(soon, 'line-height', '8rem');
   }
 
+  changeStyleForTablet() {
+    const fileContainer = this.el.nativeElement.querySelector('.file-container');
+    const file = this.el.nativeElement.querySelector('.file-icon');
+    const video5 = this.el.nativeElement.querySelector('.video5-container');
+    const video4 = this.el.nativeElement.querySelector('.video4-container');
+    const video3 = this.el.nativeElement.querySelector('.video3-container');
+    const video2 = this.el.nativeElement.querySelector('.video2-container');
+    const video1 = this.el.nativeElement.querySelector('.video1-container');
+    const skotch = this.el.nativeElement.querySelector('.skotch');
+    const prodigmaOrg = this.el.nativeElement.querySelector('.prodigma-org-container');
+    const prodigmaPin = this.el.nativeElement.querySelector('.prodigma-pin-container');
+    const videoPin = this.el.nativeElement.querySelector('.video-pin-container');
+    const photoPin = this.el.nativeElement.querySelector('.photo-pin-container');
+    const designPin = this.el.nativeElement.querySelector('.design-pin-container');
+    const devPin = this.el.nativeElement.querySelector('.dev-pin-container');
+    const ductTape = this.el.nativeElement.querySelector('.duct-tape-container');
+    const logoPin = this.el.nativeElement.querySelector('.logo-pin-container');
+    const scrBtn = this.el.nativeElement.querySelector('.screen-container');
+    const links = this.el.nativeElement.querySelector('.links-container');
+    const comingSoon = this.el.nativeElement.querySelector('.coming-soon-container');
+    this.renderer.setStyle(fileContainer, 'width', '100vw');
+    this.renderer.setStyle(fileContainer, 'height', '100vh');
+    this.renderer.setStyle(fileContainer, 'top', '0');
+    this.renderer.setStyle(fileContainer, 'right', '0');
+    this.renderer.setStyle(file, 'top', '-720px');
+    this.renderer.setStyle(file, 'right', '-238px');
+    this.renderer.setStyle(file, 'transform', 'rotate(-90deg)');
+    this.renderer.setStyle(video5, 'top', '440px');
+    this.renderer.setStyle(video5, 'right', '40px');
+    this.renderer.setStyle(video5, 'rotate', '18deg');
+    this.renderer.setStyle(video4, 'top', '830px');
+    this.renderer.setStyle(video4, 'right', '110px');
+    this.renderer.setStyle(video4, 'z-index', '6');
+    this.renderer.setStyle(video3, 'top', '637px');
+    this.renderer.setStyle(video3, 'right', '441px');
+    this.renderer.setStyle(video3, 'rotate', '-27deg');
+    this.renderer.setStyle(video2, 'top', '327px');
+    this.renderer.setStyle(video2, 'right', '506px');
+    this.renderer.setStyle(video2, 'rotate', '-18deg');
+    this.renderer.setStyle(video1, 'top', '193px');
+    this.renderer.setStyle(video1, 'right', '231px');
+    this.renderer.setStyle(skotch, 'top', '6px');
+    this.renderer.setStyle(skotch, 'right', '19px');
+    this.renderer.setStyle(skotch, 'width', '284px');
+    this.renderer.setStyle(prodigmaOrg, 'width', '244px');
+    this.renderer.setStyle(prodigmaOrg, 'top', '80px');
+    this.renderer.setStyle(prodigmaOrg, 'right', '40px');
+    this.renderer.setStyle(prodigmaOrg, 'rotate', '30deg');
+    this.renderer.setStyle(prodigmaPin, 'top', '45%');
+    this.renderer.setStyle(prodigmaPin, 'right', '40%');
+    this.renderer.setStyle(prodigmaPin, 'width', '119px');
+    this.renderer.setStyle(prodigmaPin, 'rotate', '-51deg');
+    this.renderer.setStyle(videoPin, 'top', '310px');
+    this.renderer.setStyle(videoPin, 'right', '608px');   
+    this.renderer.setStyle(photoPin, 'top', '159px');
+    this.renderer.setStyle(photoPin, 'right', '211px');
+    this.renderer.setStyle(designPin, 'top', '602px');
+    this.renderer.setStyle(designPin, 'right', '438px');
+    this.renderer.setStyle(designPin, 'rotate', '45deg');
+    this.renderer.setStyle(devPin, 'top', '380px');
+    this.renderer.setStyle(devPin, 'right', '80px');
+    this.renderer.setStyle(devPin, 'rotate', '30deg');
+    this.renderer.setStyle(ductTape, 'width', '527px');
+    this.renderer.setStyle(ductTape, 'top', 'calc(100% - 333px)');
+    this.renderer.setStyle(ductTape, 'right', '0');
+    this.renderer.setStyle(logoPin, 'top', '810px');
+    this.renderer.setStyle(logoPin, 'right', '210px');
+    this.renderer.setStyle(logoPin, 'z-index', '7');
+    this.renderer.setStyle(logoPin, 'rotate', '-45deg');
+    this.renderer.setStyle(scrBtn, 'opacity', '0');
+    this.renderer.setStyle(links, 'opacity', '0');
+    this.renderer.setStyle(comingSoon, 'top', '53px');
+  }
+
+  resetStyleForTablet() {
+    const fileContainer = this.el.nativeElement.querySelector('.file-container');
+    const file = this.el.nativeElement.querySelector('.file-icon');
+    const video5 = this.el.nativeElement.querySelector('.video5-container');
+    const video4 = this.el.nativeElement.querySelector('.video4-container');
+    const video3 = this.el.nativeElement.querySelector('.video3-container');
+    const video2 = this.el.nativeElement.querySelector('.video2-container');
+    const video1 = this.el.nativeElement.querySelector('.video1-container');
+    const skotch = this.el.nativeElement.querySelector('.skotch');
+    const prodigmaOrg = this.el.nativeElement.querySelector('.prodigma-org-container');
+    const prodigmaPin = this.el.nativeElement.querySelector('.prodigma-pin-container');
+    const videoPin = this.el.nativeElement.querySelector('.video-pin-container');
+    const photoPin= this.el.nativeElement.querySelector('.photo-pin-container');
+    const designPin = this.el.nativeElement.querySelector('.design-pin-container');
+    const devPin = this.el.nativeElement.querySelector('.dev-pin-container');
+    const ductTape = this.el.nativeElement.querySelector('.duct-tape-container');
+    const logoPin = this.el.nativeElement.querySelector('.logo-pin-container');
+    const scrBtn = this.el.nativeElement.querySelector('.screen-container');
+    const links = this.el.nativeElement.querySelector('.links-container');
+    const comingSoon = this.el.nativeElement.querySelector('.coming-soon-container');
+    this.renderer.setStyle(fileContainer, 'width', '343px');
+    this.renderer.setStyle(fileContainer, 'height', '497px');
+    this.renderer.setStyle(fileContainer, 'top', '116px');
+    this.renderer.setStyle(fileContainer, 'right', '78px');
+    this.renderer.setStyle(file, 'top', '45px');
+    this.renderer.setStyle(file, 'right', '36px');
+    this.renderer.setStyle(file, 'transform', 'rotate(0deg)');
+    this.renderer.setStyle(video5, 'top', '230px');
+    this.renderer.setStyle(video5, 'right', '41px');
+    this.renderer.setStyle(video5, 'rotate', '2deg');
+    this.renderer.setStyle(video4, 'top', '165px');
+    this.renderer.setStyle(video4, 'right', '98px');
+    this.renderer.setStyle(video4, 'z-index', '5');
+    this.renderer.setStyle(video3, 'top', '106px');
+    this.renderer.setStyle(video3, 'right', '40px');
+    this.renderer.setStyle(video3, 'rotate', '2deg');
+    this.renderer.setStyle(video2, 'top', '119px');
+    this.renderer.setStyle(video2, 'right', '100px');
+    this.renderer.setStyle(video2, 'rotate', '4deg');
+    this.renderer.setStyle(video1, 'top', '75px');
+    this.renderer.setStyle(video1, 'right', '138px');
+    this.renderer.setStyle(skotch, 'top', '0');
+    this.renderer.setStyle(skotch, 'right', '-1px');
+    this.renderer.setStyle(skotch, 'width', '158px');
+    this.renderer.setStyle(prodigmaOrg, 'width', '102px');
+    this.renderer.setStyle(prodigmaOrg, 'top', '412px');
+    this.renderer.setStyle(prodigmaOrg, 'right', '191px');
+    this.renderer.setStyle(prodigmaOrg, 'rotate', '0deg');
+    this.renderer.setStyle(prodigmaPin, 'top', '325px');
+    this.renderer.setStyle(prodigmaPin, 'right', '194px');
+    this.renderer.setStyle(prodigmaPin, 'width', '89px');
+    this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
+    this.renderer.setStyle(videoPin, 'top', '354px');
+    this.renderer.setStyle(videoPin, 'right', '132px');
+    this.renderer.setStyle(photoPin, 'top', '350px');
+    this.renderer.setStyle(photoPin, 'right', '83px');
+    this.renderer.setStyle(designPin, 'top', '347px');
+    this.renderer.setStyle(designPin, 'right', '31px');
+    this.renderer.setStyle(designPin, 'rotate', '0deg');
+    this.renderer.setStyle(devPin, 'top', '384px');
+    this.renderer.setStyle(devPin, 'right', '68px');
+    this.renderer.setStyle(devPin, 'rotate', '-3deg');
+    this.renderer.setStyle(ductTape, 'width', '147px');
+    this.renderer.setStyle(ductTape, 'right', '36px');
+    this.renderer.setStyle(ductTape, 'top', '363px');
+    this.renderer.setStyle(logoPin, 'top', '376px');
+    this.renderer.setStyle(logoPin, 'right', '126px');
+    this.renderer.setStyle(logoPin, 'z-index', '5');
+    this.renderer.setStyle(logoPin, 'rotate', '0deg');
+    this.renderer.setStyle(scrBtn, 'opacity', 'unset');
+    this.renderer.setStyle(links, 'opacity', '0.7');
+    this.renderer.setStyle(comingSoon, 'top', '223px');
+  }
 }
