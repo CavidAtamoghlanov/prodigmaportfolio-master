@@ -42,7 +42,7 @@
 
 .main-container{
     position: absolute;
-    top: 0;
+    top: 5vh;
     width: 1440px;
     height: 100%;
 }
@@ -98,7 +98,7 @@
 
 .p-btn-container{
     position: absolute;
-    top: 767px;
+    bottom: 22vh;
     left: 563px;
     z-index: 4;
     font-family: 'Panton-Regular';
@@ -340,7 +340,7 @@ a {
     color: inherit;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 741px) and (max-width: 1330px) {
     .main-container {
         width: 768px !important;
     }

@@ -77,8 +77,8 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(video5, 'top', '317px');
     this.renderer.setStyle(video5, 'right', '212px');
     this.renderer.setStyle(video5, 'rotate', '18deg');
-    this.renderer.setStyle(video4, 'top', 'calc(100% - 300px');
-    this.renderer.setStyle(video4, 'right', '140px');
+    this.renderer.setStyle(video4, 'top', 'calc(100% - 350px');
+    this.renderer.setStyle(video4, 'right', '150px');
     this.renderer.setStyle(video4, 'z-index', '6');
     this.renderer.setStyle(video3, 'top', '750px');
     this.renderer.setStyle(video3, 'right', '750px');
@@ -94,7 +94,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'top', '68px');
     this.renderer.setStyle(prodigmaOrg, 'right', '63px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '30deg');
-    this.renderer.setStyle(prodigmaPin, 'width', '153px');
+    this.renderer.setStyle(prodigmaPin, 'width', '200px');
     this.renderer.setStyle(prodigmaPin, 'top', '483px');
     this.renderer.setStyle(prodigmaPin, 'right', '643px');
     this.renderer.setStyle(prodigmaPin, 'rotate', '-51deg');
@@ -113,10 +113,10 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(devPin, 'right', '260px');
     this.renderer.setStyle(devPin, 'rotate', '30deg');
     this.renderer.setStyle(ductTape, 'width', '678px');
-    this.renderer.setStyle(ductTape, 'top', 'calc(100% - 429px)');
+    this.renderer.setStyle(ductTape, 'top', 'calc(100% - 480px)');
     this.renderer.setStyle(ductTape, 'right', '0');
-    this.renderer.setStyle(logoPin, 'top', 'calc(100% - 310px)');
-    this.renderer.setStyle(logoPin, 'right', '320px');
+    this.renderer.setStyle(logoPin, 'top', 'calc(100% - 360px)');
+    this.renderer.setStyle(logoPin, 'right', '330px');
     this.renderer.setStyle(logoPin, 'z-index', '7');
     this.renderer.setStyle(logoPin, 'rotate', '-45deg');
     this.renderer.setStyle(pBtn, 'opacity', '0');
@@ -187,7 +187,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'right', '299px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '0deg');
     this.renderer.setStyle(prodigmaPin, 'width', '120px');
-    this.renderer.setStyle(prodigmaPin, 'top', '510px');
+    this.renderer.setStyle(prodigmaPin, 'top', '500px');
     this.renderer.setStyle(prodigmaPin, 'right', '305px');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
     this.renderer.setStyle(videoPin, 'width', '125px');
