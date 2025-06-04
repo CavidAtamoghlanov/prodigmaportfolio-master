@@ -42,14 +42,14 @@
 
 .main-container{
     position: absolute;
-    top: 5vh;
+    top: 0;
     width: 1440px;
     height: 100%;
 }
 
 .coming-soon-container{
     position: absolute;
-    top: 223px;
+    top: 20vh;
     left: 70px;
     z-index: 4;
     font-family: 'Gennaro';
@@ -152,7 +152,7 @@
     width: 532px;
     height: 739px;
     position: absolute;
-    top: 0;
+    top: 5vh;
     right: 70px;
     transition: all 0.5s ease-in-out;
 
@@ -260,30 +260,30 @@
     
     .video-pin-container {
         @extend .pin-container;
-        width: 125px;
-        top: 540px;
-        right: 210px;
+        width: 150px;
+        top: 530px;
+        right: 200px;
     }
     
     .photo-pin-container {
         @extend .pin-container;
-        width: 125px;
-        top: 530px;
+        width: 150px;
+        top: 510px;
         right: 125px;
     }
     
     .design-pin-container {
         @extend .pin-container;
-        width: 125px;
-        top: 520px;
-        right: 40px;
+        width: 150px;
+        top: 510px;
+        right: 35px;
     }
     
     .dev-pin-container {
         @extend .pin-container;
-        width: 125px;
-        top: 580px;
-        right: 110px;
+        width: 150px;
+        top: 565px;
+        right: 100px;
     }
 }
 
