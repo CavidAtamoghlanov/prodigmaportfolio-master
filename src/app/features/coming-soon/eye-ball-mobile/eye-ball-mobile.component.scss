@@ -1,0 +1,111 @@
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.light-overlay {
+  @extend .overlay;
+  z-index: 1;
+}
+
+.dust-grain {
+  @extend .overlay;
+  z-index: 2;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  padding: 1rem;
+  z-index: 3;
+  position: relative;
+
+  &.section-1 { height: 80vh; }
+  &.section-2 { height: 40vh; }
+  &.section-3 { height: 80vh; }
+}
+
+.grid{
+  width: 100%;
+  height: 55vh;
+  position: absolute;
+  top: 25vh;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  
+  img {
+    width: 90%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.coming-soon-container {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: auto;
+  z-index: 5;
+  font-family: 'Gennaro';
+
+  .coming {
+    color: #D33D25;
+    font-size: 16rem;
+    line-height: 8rem;
+  }
+
+  .soon {
+    font-size: 9rem;
+    line-height: 4.5rem;
+  }
+
+  .where {
+    position: absolute;
+    top: 56px;
+    right: 6px;
+    font-size: 0.8rem;
+    z-index: 6;
+    padding: 0 0.4rem;
+    font-family: 'Panton-Regular';
+    background-color: white;
+    color: black;
+  }
+
+  .logo-pin-container {
+    position: absolute;
+    top: -45px;
+    left: 90px;
+    z-index: 6;
+    rotate: -15deg;
+  }
+
+  .skotch{
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    z-index: 7;
+  }
+
+}
+
