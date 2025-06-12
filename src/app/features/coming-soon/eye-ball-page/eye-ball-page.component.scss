@@ -255,7 +255,7 @@
         @extend .pin-container;
         width: 120px;
         top: 500px;
-        left: 116px;
+        left: 110px;
     }
     
     .video-pin-container {
@@ -342,7 +342,7 @@ a {
 
 @media only screen and (min-width: 741px) and (max-width: 1330px) {
     .main-container {
-        width: 768px !important;
+        width: 100vw !important;
     }
 
     .coming{
@@ -528,7 +528,7 @@ a {
         .prodigma-pin-container{
             width: 89px;
             top: 325px;
-            right: 194px; 
+            left: 60px; 
 
             img {
                 width: 100%;
@@ -591,8 +591,9 @@ a {
     }
 
     .links-container {
-        width: 768px;
+        width: 100vw;
         bottom: 104px;
+        justify-content: center;
     }
 
     .links-container > div {

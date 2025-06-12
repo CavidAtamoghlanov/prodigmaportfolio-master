@@ -13,7 +13,7 @@ export class EyeBallPageComponent {
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
-    if (this.viewportWidth > 768) {
+    if (this.viewportWidth > 1330) {
       if (event.key === 'p' || event.key === 'P') {
         this.changeStyle();
       }
@@ -22,7 +22,7 @@ export class EyeBallPageComponent {
 
   @HostListener('window:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent) {
-    if (this.viewportWidth > 768) {
+    if (this.viewportWidth > 1330) {
       if (event.key === 'p' || event.key === 'P') {
         this.resetStyle();
       }
@@ -31,14 +31,14 @@ export class EyeBallPageComponent {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart() {
-    if (this.viewportWidth <= 768) {
+    if (this.viewportWidth <= 1330) {
       this.changeStyleForTablet();
     }
   }
 
   @HostListener('touchend', ['$event'])
   onTouchEnd() {
-    if (this.viewportWidth <= 768) {
+    if (this.viewportWidth <= 1330) {
       this.resetStyleForTablet();
     }
   }
@@ -52,7 +52,7 @@ export class EyeBallPageComponent {
     let designPinTop;
     let video1Top;
     let photoPinTop;
-    if (window.innerHeight > 1080){
+    if (window.innerHeight > 1080) {
       video5Top = 'calc(100vh - 1150px)';
       devPinTop = 'calc(100vh - 1270px)';
       video4Top = 'calc(100vh - 350px)';
@@ -62,7 +62,7 @@ export class EyeBallPageComponent {
       video1Top = 'calc(100vh - 1200px)';
       photoPinTop = 'calc(100vh - 1295px)';
     }
-    else if (window.innerHeight <= 1080 && window.innerHeight > 900){
+    else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
       video5Top = 'calc(100vh - 850px)';
       devPinTop = 'calc(100vh - 970px)';
       video4Top = 'calc(100vh - 340px)';
@@ -138,10 +138,10 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'right', '63px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '30deg');
     this.renderer.setStyle(prodigmaPin, 'width', '200px');
-    this.renderer.setStyle(prodigmaPin, 'top', `calc((100vh - ${prodigmaPin.offsetHeight}px) / 2)`); //PRODIGMA
-    this.renderer.setStyle(prodigmaPin, 'left', `calc((100vw - ${prodigmaPin.offsetWidth}px) / 2)`); //PRODIGMA
-    this.renderer.setStyle(prodigmaPin, 'right', 'unset');
-    this.renderer.setStyle(prodigmaPin, 'rotate', '-51deg');
+    this.renderer.setStyle(prodigmaPin, 'top', '50%'); //PRODIGMA
+    this.renderer.setStyle(prodigmaPin, 'left', '50%'); //PRODIGMA
+    this.renderer.setStyle(prodigmaPin, 'transform', 'translate(-50%, -50%) rotate(-50deg)');
+    this.renderer.setStyle(prodigmaPin, 'rotate', 'unset');
     this.renderer.setStyle(videoPin, 'width', '200px');
     this.renderer.setStyle(videoPin, 'top', '440px');
     this.renderer.setStyle(videoPin, 'right', '1210px');
@@ -230,7 +230,8 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'rotate', '0deg');
     this.renderer.setStyle(prodigmaPin, 'width', '120px');
     this.renderer.setStyle(prodigmaPin, 'top', '500px');
-    this.renderer.setStyle(prodigmaPin, 'left', '116px');
+    this.renderer.setStyle(prodigmaPin, 'left', '110px');
+    this.renderer.setStyle(prodigmaPin, 'transform', 'unset');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
     this.renderer.setStyle(videoPin, 'width', '150px');
     this.renderer.setStyle(videoPin, 'top', '540px');
@@ -272,6 +273,45 @@ export class EyeBallPageComponent {
   }
 
   changeStyleForTablet() {
+    let video5Top;
+    let devPinTop;
+    let video4Top;
+    let logoPinTop;
+    let video3Top;
+    let designPinTop;
+    let video1Top;
+    let photoPinTop;
+    if (window.innerHeight > 1080) {
+      video5Top = 'calc(100vh - 1150px)';
+      devPinTop = 'calc(100vh - 1270px)';
+      video4Top = 'calc(100vh - 350px)';
+      logoPinTop = 'calc(100vh - 380px)';
+      video3Top = 'calc(100vh - 400px)';
+      designPinTop = 'calc(100vh - 480px)';
+      video1Top = 'calc(100vh - 1200px)';
+      photoPinTop = 'calc(100vh - 1295px)';
+    }
+    else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
+      video5Top = 'calc(100vh - 850px)';
+      devPinTop = 'calc(100vh - 970px)';
+      video4Top = 'calc(100vh - 340px)';
+      logoPinTop = 'calc(100vh - 370px)';
+      video3Top = 'calc(100vh - 350px)';
+      designPinTop = 'calc(100vh - 430px)';
+      video1Top = 'calc(100vh - 900px)';
+      photoPinTop = 'calc(100vh - 995px)';
+    }
+    else{
+      video5Top = 'calc(100vh - 650px)';
+      devPinTop = 'calc(100vh - 770px)';
+      video4Top = 'calc(100vh - 330px)';
+      logoPinTop = 'calc(100vh - 360px)';
+      video3Top = 'calc(100vh - 300px)';
+      designPinTop = 'calc(100vh - 380px)';
+      video1Top = 'calc(100vh - 700px)';
+      photoPinTop = 'calc(100vh - 795px)';
+    }
+
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
     const video5 = this.el.nativeElement.querySelector('.video5-container');
@@ -298,19 +338,19 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'top', '-720px');
     this.renderer.setStyle(file, 'right', '-238px');
     this.renderer.setStyle(file, 'transform', 'rotate(-90deg)');
-    this.renderer.setStyle(video5, 'top', '440px');
+    this.renderer.setStyle(video5, 'top', video5Top);
     this.renderer.setStyle(video5, 'right', '40px');
     this.renderer.setStyle(video5, 'rotate', '18deg');
-    this.renderer.setStyle(video4, 'top', '830px');
+    this.renderer.setStyle(video4, 'top', video4Top);
     this.renderer.setStyle(video4, 'right', '110px');
     this.renderer.setStyle(video4, 'z-index', '6');
-    this.renderer.setStyle(video3, 'top', '637px');
+    this.renderer.setStyle(video3, 'top', video3Top);
     this.renderer.setStyle(video3, 'right', '441px');
     this.renderer.setStyle(video3, 'rotate', '-27deg');
     this.renderer.setStyle(video2, 'top', '327px');
     this.renderer.setStyle(video2, 'right', '506px');
     this.renderer.setStyle(video2, 'rotate', '-18deg');
-    this.renderer.setStyle(video1, 'top', '193px');
+    this.renderer.setStyle(video1, 'top', video1Top);
     this.renderer.setStyle(video1, 'right', '231px');
     this.renderer.setStyle(skotch, 'top', '6px');
     this.renderer.setStyle(skotch, 'right', '19px');
@@ -319,24 +359,25 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'top', '80px');
     this.renderer.setStyle(prodigmaOrg, 'right', '40px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '30deg');
-    this.renderer.setStyle(prodigmaPin, 'top', '45%');
-    this.renderer.setStyle(prodigmaPin, 'right', '40%');
     this.renderer.setStyle(prodigmaPin, 'width', '119px');
-    this.renderer.setStyle(prodigmaPin, 'rotate', '-51deg');
+    this.renderer.setStyle(prodigmaPin, 'top', '50%'); //PRODIGMA
+    this.renderer.setStyle(prodigmaPin, 'left', '50%'); //PRODIGMA
+    this.renderer.setStyle(prodigmaPin, 'transform', 'translate(-50%, -50%) rotate(-50deg)');
+    this.renderer.setStyle(prodigmaPin, 'rotate', 'unset');
     this.renderer.setStyle(videoPin, 'top', '310px');
     this.renderer.setStyle(videoPin, 'right', '608px');   
-    this.renderer.setStyle(photoPin, 'top', '159px');
+    this.renderer.setStyle(photoPin, 'top', photoPinTop);
     this.renderer.setStyle(photoPin, 'right', '211px');
-    this.renderer.setStyle(designPin, 'top', '602px');
+    this.renderer.setStyle(designPin, 'top', designPinTop);
     this.renderer.setStyle(designPin, 'right', '438px');
     this.renderer.setStyle(designPin, 'rotate', '45deg');
-    this.renderer.setStyle(devPin, 'top', '380px');
+    this.renderer.setStyle(devPin, 'top', devPinTop);
     this.renderer.setStyle(devPin, 'right', '80px');
     this.renderer.setStyle(devPin, 'rotate', '30deg');
     this.renderer.setStyle(ductTape, 'width', '527px');
     this.renderer.setStyle(ductTape, 'top', 'calc(100% - 333px)');
     this.renderer.setStyle(ductTape, 'right', '0');
-    this.renderer.setStyle(logoPin, 'top', '810px');
+    this.renderer.setStyle(logoPin, 'top', logoPinTop);
     this.renderer.setStyle(logoPin, 'right', '210px');
     this.renderer.setStyle(logoPin, 'z-index', '7');
     this.renderer.setStyle(logoPin, 'rotate', '-45deg');
@@ -393,9 +434,10 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaOrg, 'top', '412px');
     this.renderer.setStyle(prodigmaOrg, 'right', '191px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '0deg');
-    this.renderer.setStyle(prodigmaPin, 'top', '325px');
-    this.renderer.setStyle(prodigmaPin, 'right', '194px');
     this.renderer.setStyle(prodigmaPin, 'width', '89px');
+    this.renderer.setStyle(prodigmaPin, 'top', '325px');
+    this.renderer.setStyle(prodigmaPin, 'left', '60px');
+    this.renderer.setStyle(prodigmaPin, 'transform', 'unset');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
     this.renderer.setStyle(videoPin, 'top', '354px');
     this.renderer.setStyle(videoPin, 'right', '132px');

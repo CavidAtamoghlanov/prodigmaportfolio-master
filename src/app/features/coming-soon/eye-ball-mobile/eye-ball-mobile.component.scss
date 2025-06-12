@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 .scroll-container {
   display: flex;
   flex-direction: column;
@@ -31,30 +33,12 @@
   justify-content: center;
   font-size: 2rem;
   color: white;
-  padding: 1rem;
   z-index: 3;
   position: relative;
 
   &.section-1 { height: 80vh; }
   &.section-2 { height: 40vh; }
   &.section-3 { height: 80vh; }
-}
-
-.grid{
-  width: 100%;
-  height: 55vh;
-  position: absolute;
-  top: 25vh;
-  right: 0;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-  
-  img {
-    width: 90%;
-    height: 100%;
-    object-fit: contain;
-  }
 }
 
 .coming-soon-container {
@@ -109,3 +93,251 @@
 
 }
 
+.grid {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 4;
+  display: flex;
+  justify-content: center; // horizontal centering
+  align-items: center;     // vertical centering
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+$videos: (
+  1: (9deg, -9deg),
+  2: (6deg, 9deg),
+  3: (-36deg, 9deg),
+  4: (36deg, -9deg),
+  5: (-21deg, 9deg)
+);
+
+@each $num, $values in $videos {
+  .video#{$num}-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(list.nth($values, 1));
+    z-index: 5;
+
+    .video-#{$num} {
+      position: absolute;
+      top: 49%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(list.nth($values, 2));
+      width: 124px;
+      height: 186px;
+      z-index: 5;
+      object-fit: cover;
+    }
+  }
+}
+
+.plyonka{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.pin-container {
+  position: absolute;
+  height: auto;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+  img {
+      width: 100%;
+      height: auto;
+  }
+}
+
+.prodigma-org-container {
+  @extend .pin-container;
+  width: 164px;
+  top: 50%;
+  left: -60px;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.pins{
+  width: 60vw;
+  height: 60vw;
+  z-index: 5;
+
+  .plastic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: auto;
+  }
+}
+
+// .eye {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+//   opacity: 0.7;
+// }
+
+.pin {
+    position: absolute;
+    width: 220px;
+    height: auto;
+    z-index: 5;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+}
+
+.photo-pin {
+  @extend .pin;
+  top: 32.5%;
+  left: 42%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.video-pin {
+  @extend .pin;
+  top: 42.5%;
+  left: 39%;
+  transform: translate(-50%, -50%) rotate(25deg);
+}
+
+.design-pin {
+  @extend .pin;
+  top: 56.5%;
+  left: 51.5%;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.dev-pin {
+  @extend .pin;
+  top: 67.5%;
+  left: 51.5%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.skoch {
+    position: absolute;
+    width: 90px;
+    height: auto;
+    z-index: 5;
+}
+
+.skoch-1 {
+  @extend .skoch;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.skoch-2 {
+  @extend .skoch;
+  top: 25%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.skoch-3 {
+  @extend .skoch;
+  top: 75%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.skoch-4 {
+  @extend .skoch;
+  top: 75%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.prodigma-pin {
+  @extend .pin;
+  top: 0;
+  left: 5%;
+  rotate: -50deg;
+}
+
+.links-container{
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  height: auto;
+  margin: 1rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: 'Panton-Regular';
+  opacity: 0.7;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.links-container > div {
+    width: 100%;
+    margin-left: 5%;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.midline{
+    display: inline-block;
+    width: 24px;
+    margin: 8px;
+}
+
+.instagram,
+.linkedin,
+.behance,
+.dribble,
+.helloprodigmaorg {
+    transition: all 0.3s ease-in-out;
+}
+
+.instagram:hover,
+.linkedin:hover,
+.behance:hover,
+.dribble:hover,
+.helloprodigmaorg:hover {
+    color: #d33d25;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media only screen and (max-width: 375px) {
+  .video-1,
+  .video-2,
+  .video-3,
+  .video-4,
+  .video-5 {
+    top: 48% !important;
+    width: 110px !important;
+    height: 163px !important;
+  }
+}
