@@ -190,18 +190,18 @@
     }
 
     $videos: (
-      1: (102px, 209px, -8deg, -9deg),
-      2: (161px, 136px, 4deg, 9deg),
-      3: (141px, 53px, 2deg, 9deg),
-      4: (242px, 137px, -4deg, -9deg),
-      5: (338px, 55px, 2deg, 9deg)
+      1: (102px, 80px, -8deg, -9deg),
+      2: (161px, 160px, 4deg, 9deg),
+      3: (141px, 245px, 2deg, 9deg),
+      4: (242px, 160px, -4deg, -9deg),
+      5: (338px, 250px, 2deg, 9deg)
     );
     
     @each $num, $values in $videos {
       .video#{$num}-container {
         position: absolute;
         top: list.nth($values, 1);
-        right: list.nth($values, 2);
+        left: list.nth($values, 2);
         rotate: list.nth($values, 3);
         z-index: 5;
         transition: all 0.5s ease-in-out;
@@ -241,7 +241,7 @@
         @extend .pin-container;
         width: 103px;
         top: 570px;
-        right: 200px;
+        left: 220px;
     }
     
     .prodigma-org-container {
@@ -262,28 +262,28 @@
         @extend .pin-container;
         width: 150px;
         top: 530px;
-        right: 200px;
+        left: 180px;
     }
     
     .photo-pin-container {
         @extend .pin-container;
         width: 150px;
-        top: 510px;
-        right: 125px;
+        top: 512.5px;
+        left: 260px;
     }
     
     .design-pin-container {
         @extend .pin-container;
         width: 150px;
         top: 510px;
-        right: 35px;
+        left: 350px;
     }
     
     .dev-pin-container {
         @extend .pin-container;
         width: 150px;
-        top: 565px;
-        right: 100px;
+        top: 570px;
+        left: 280px;
     }
 }
 
@@ -340,7 +340,7 @@ a {
     color: inherit;
 }
 
-@media only screen and (min-width: 741px) and (max-width: 1330px) {
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
     .main-container {
         width: 100vw !important;
     }
@@ -392,7 +392,7 @@ a {
         .video1-container{
             position: absolute;
             top: 75px;
-            right: 138px;
+            left: 60px;
             width: 147px;
             height: 161px;
             rotate: -3deg;
@@ -413,7 +413,7 @@ a {
 
         .video2-container{
             top: 119px;
-            right: 100px;
+            left: 100px;
             width: 147px;
             height: 161px;
             rotate: 9deg;
@@ -433,7 +433,7 @@ a {
 
         .video3-container{
             top: 106px;
-            right: 40px;
+            left: 155px;
             width: 147px;
             height: 161px;
 
@@ -453,7 +453,7 @@ a {
 
         .video4-container{
             top: 165px;
-            right: 98px;
+            left: 100px;
             width: 147px;
             height: 161px;
             rotate: 1deg;
@@ -474,7 +474,7 @@ a {
 
         .video5-container{
             top: 230px;
-            right: 41px;
+            left: 150px;
             width: 147px;
             height: 161px;
 
@@ -505,8 +505,8 @@ a {
         
         .logo-pin-container{
             width: 76px;
-            top: 376px;
-            right: 126px;
+            top: 380px;
+            left: 135px;
 
             img {
                 width: 100%;
@@ -539,7 +539,7 @@ a {
         .video-pin-container{
             width: 93px;
             top: 354px;
-            right: 132px;
+            left: 117.5px;
 
             img {
                 width: 100%;
@@ -550,7 +550,7 @@ a {
         .photo-pin-container{
             width: 92px;
             top: 350px;
-            right: 83px;
+            left: 170px;
 
             img {
                 width: 100%;
@@ -562,7 +562,7 @@ a {
             width: 92px;
             height: auto;
             top: 347px;
-            right: 31px;
+            left: 220px;
 
             img {
                 width: 100%;
@@ -573,7 +573,7 @@ a {
         .dev-pin-container{
             width: 92px;
             top: 384px;
-            right: 68px;
+            left: 180px;
 
             img {
                 width: 100%;

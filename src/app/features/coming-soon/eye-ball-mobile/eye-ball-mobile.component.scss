@@ -184,16 +184,16 @@ $videos: (
   }
 }
 
-// .eye {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 100%;
-//   height: auto;
-//   object-fit: cover;
-//   opacity: 0.7;
-// }
+.eye {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.5;
+}
 
 .pin {
     position: absolute;
@@ -330,14 +330,25 @@ a {
     color: inherit;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 390px) {
   .video-1,
   .video-2,
   .video-3,
   .video-4,
   .video-5 {
     top: 48% !important;
-    width: 110px !important;
-    height: 163px !important;
+    width: 112px !important;
+    height: 168px !important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .video-1,
+  .video-2,
+  .video-3,
+  .video-4,
+  .video-5 {
+    width: 104px !important;
+    height: 156px !important;
   }
 }

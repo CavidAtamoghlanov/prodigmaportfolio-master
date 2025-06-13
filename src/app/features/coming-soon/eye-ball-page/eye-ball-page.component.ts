@@ -13,7 +13,7 @@ export class EyeBallPageComponent {
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
-    if (this.viewportWidth > 1330) {
+    if (this.viewportWidth > 1366) {
       if (event.key === 'p' || event.key === 'P') {
         this.changeStyle();
       }
@@ -22,7 +22,7 @@ export class EyeBallPageComponent {
 
   @HostListener('window:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent) {
-    if (this.viewportWidth > 1330) {
+    if (this.viewportWidth > 1366) {
       if (event.key === 'p' || event.key === 'P') {
         this.resetStyle();
       }
@@ -31,14 +31,14 @@ export class EyeBallPageComponent {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart() {
-    if (this.viewportWidth <= 1330) {
+    if (this.viewportWidth <= 1366) {
       this.changeStyleForTablet();
     }
   }
 
   @HostListener('touchend', ['$event'])
   onTouchEnd() {
-    if (this.viewportWidth <= 1330) {
+    if (this.viewportWidth <= 1366) {
       this.resetStyleForTablet();
     }
   }
@@ -50,17 +50,33 @@ export class EyeBallPageComponent {
     let logoPinTop;
     let video3Top;
     let designPinTop;
+    let video2Top;
+    let videoPinTop;
     let video1Top;
     let photoPinTop;
-    if (window.innerHeight > 1080) {
+    if (window.innerHeight > 1440) {
       video5Top = 'calc(100vh - 1150px)';
       devPinTop = 'calc(100vh - 1270px)';
       video4Top = 'calc(100vh - 350px)';
       logoPinTop = 'calc(100vh - 380px)';
       video3Top = 'calc(100vh - 400px)';
       designPinTop = 'calc(100vh - 480px)';
-      video1Top = 'calc(100vh - 1200px)';
-      photoPinTop = 'calc(100vh - 1295px)';
+      video2Top = 'calc(100vh - 800px)';
+      videoPinTop = 'calc(100vh - 850px)';
+      video1Top = 'calc(100vh - 1320px)';
+      photoPinTop = 'calc(100vh - 1400px)';
+    }
+    else if ( window.innerHeight <= 1440 && window.innerHeight > 1080) {
+      video5Top = 'calc(100vh - 1020px)';
+      devPinTop = 'calc(100vh - 1140px)';
+      video4Top = 'calc(100vh - 350px)';
+      logoPinTop = 'calc(100vh - 380px)';
+      video3Top = 'calc(100vh - 400px)';
+      designPinTop = 'calc(100vh - 480px)';
+      video2Top = 'calc(100vh - 700px)';
+      videoPinTop = 'calc(100vh - 750px)';
+      video1Top = 'calc(100vh - 1150px)';
+      photoPinTop = 'calc(100vh - 1230px)';
     }
     else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
       video5Top = 'calc(100vh - 850px)';
@@ -69,8 +85,10 @@ export class EyeBallPageComponent {
       logoPinTop = 'calc(100vh - 370px)';
       video3Top = 'calc(100vh - 350px)';
       designPinTop = 'calc(100vh - 430px)';
-      video1Top = 'calc(100vh - 900px)';
-      photoPinTop = 'calc(100vh - 995px)';
+      video2Top = 'calc(100vh - 600px)';
+      videoPinTop = 'calc(100vh - 650px)';
+      video1Top = 'calc(100vh - 920px)';
+      photoPinTop = 'calc(100vh - 1015px)';
     }
     else{
       video5Top = 'calc(100vh - 650px)';
@@ -79,8 +97,10 @@ export class EyeBallPageComponent {
       logoPinTop = 'calc(100vh - 360px)';
       video3Top = 'calc(100vh - 300px)';
       designPinTop = 'calc(100vh - 380px)';
-      video1Top = 'calc(100vh - 700px)';
-      photoPinTop = 'calc(100vh - 795px)';
+      video2Top = 'calc(100vh - 500px)';
+      videoPinTop = 'calc(100vh - 550px)';
+      video1Top = 'calc(100vh - 780px)';
+      photoPinTop = 'calc(100vh - 875px)';
     }
     
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
@@ -114,23 +134,19 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'right', '-238px');
     this.renderer.setStyle(file, 'transform', 'rotate(-90deg)');
     this.renderer.setStyle(video5, 'top', video5Top); //DEV
-    this.renderer.setStyle(devPin, 'top', devPinTop); //DEV
-    this.renderer.setStyle(video5, 'right', '212px');
+    this.renderer.setStyle(video5, 'left', '77.5%'); //DEV
     this.renderer.setStyle(video5, 'rotate', '18deg');
     this.renderer.setStyle(video4, 'top', video4Top); //LOGO
-    this.renderer.setStyle(logoPin, 'top', logoPinTop); //LOGO
-    this.renderer.setStyle(video4, 'right', '150px');
+    this.renderer.setStyle(video4, 'left', '75%'); //LOGO
     this.renderer.setStyle(video4, 'z-index', '6');
     this.renderer.setStyle(video3, 'top', video3Top); //DESIGN
-    this.renderer.setStyle(designPin, 'top', designPinTop); //DESIGN
-    this.renderer.setStyle(video3, 'right', '750px');
+    this.renderer.setStyle(video3, 'left', '32.5%'); //DESIGN
     this.renderer.setStyle(video3, 'rotate', '-27deg');
-    this.renderer.setStyle(video2, 'top', '490px');
-    this.renderer.setStyle(video2, 'right', '1076px');
+    this.renderer.setStyle(video2, 'top', video2Top); //VIDEO
+    this.renderer.setStyle(video2, 'left', '12.5%'); //VIDEO
     this.renderer.setStyle(video2, 'rotate', '-18deg');
     this.renderer.setStyle(video1, 'top', video1Top); //PHOTO
-    this.renderer.setStyle(photoPin, 'top', photoPinTop); //PHOTO
-    this.renderer.setStyle(video1, 'right', '50vw'); //PHOTO
+    this.renderer.setStyle(video1, 'left', '37.5%'); //PHOTO
     this.renderer.setStyle(skotch, 'top', '7px');
     this.renderer.setStyle(skotch, 'right', '45px');
     this.renderer.setStyle(prodigmaOrg, 'width', '201px');
@@ -143,22 +159,26 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaPin, 'transform', 'translate(-50%, -50%) rotate(-50deg)');
     this.renderer.setStyle(prodigmaPin, 'rotate', 'unset');
     this.renderer.setStyle(videoPin, 'width', '200px');
-    this.renderer.setStyle(videoPin, 'top', '440px');
-    this.renderer.setStyle(videoPin, 'right', '1210px');
+    this.renderer.setStyle(videoPin, 'top', videoPinTop); //VIDEO
+    this.renderer.setStyle(videoPin, 'left', '7.5%'); //VIDEO
     this.renderer.setStyle(photoPin, 'width', '200px');   
-    this.renderer.setStyle(photoPin, 'right', '47vw'); //PHOTO
+    this.renderer.setStyle(photoPin, 'top', photoPinTop); //PHOTO
+    this.renderer.setStyle(photoPin, 'left', '42.5%'); //PHOTO
     this.renderer.setStyle(designPin, 'width', '200px');
-    this.renderer.setStyle(designPin, 'right', '720px');
+    this.renderer.setStyle(designPin, 'top', designPinTop); //DESIGN
+    this.renderer.setStyle(designPin, 'left', '37.5%'); //DESIGN
     this.renderer.setStyle(designPin, 'rotate', '45deg');
     this.renderer.setStyle(devPin, 'width', '200px');
-    this.renderer.setStyle(devPin, 'right', '240px');
+    this.renderer.setStyle(devPin, 'top', devPinTop); //DEV
+    this.renderer.setStyle(devPin, 'left', '77.5%'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '30deg');
     this.renderer.setStyle(ductTape, 'width', '678px');
     this.renderer.setStyle(ductTape, 'top', 'unset');
     this.renderer.setStyle(ductTape, 'bottom', '0');
     this.renderer.setStyle(ductTape, 'right', '0');
     this.renderer.setStyle(logoPin, 'width', '150px');
-    this.renderer.setStyle(logoPin, 'right', '300px');
+    this.renderer.setStyle(logoPin, 'top', logoPinTop); //LOGO
+    this.renderer.setStyle(logoPin, 'left', '70%'); //LOGO
     this.renderer.setStyle(logoPin, 'z-index', '7');
     this.renderer.setStyle(logoPin, 'rotate', '-45deg');
     this.renderer.setStyle(pBtn, 'opacity', '0');
@@ -209,19 +229,19 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'right', '50px');
     this.renderer.setStyle(file, 'transform', 'rotate(0deg)');
     this.renderer.setStyle(video5, 'top', '338px');
-    this.renderer.setStyle(video5, 'right', '56px');
+    this.renderer.setStyle(video5, 'left', '250px'); //DEV
     this.renderer.setStyle(video5, 'rotate', '2deg');
     this.renderer.setStyle(video4, 'top', '242px');
-    this.renderer.setStyle(video4, 'right', '138px');
+    this.renderer.setStyle(video4, 'left', '160px'); //LOGO
     this.renderer.setStyle(video4, 'z-index', '5');
     this.renderer.setStyle(video3, 'top', '141px');
-    this.renderer.setStyle(video3, 'right', '54px');
+    this.renderer.setStyle(video3, 'left', '245px'); //DESIGN
     this.renderer.setStyle(video3, 'rotate', '2deg');
     this.renderer.setStyle(video2, 'top', '161px');
-    this.renderer.setStyle(video2, 'right', '137px');
+    this.renderer.setStyle(video2, 'left', '160px'); //VIDEO
     this.renderer.setStyle(video2, 'rotate', '4deg');
     this.renderer.setStyle(video1, 'top', '102px');
-    this.renderer.setStyle(video1, 'right', '210px');
+    this.renderer.setStyle(video1, 'left', '80px'); //PHOTO
     this.renderer.setStyle(skotch, 'top', '0');
     this.renderer.setStyle(skotch, 'right', '-1px');
     this.renderer.setStyle(prodigmaOrg, 'width', '164px');
@@ -234,18 +254,18 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaPin, 'transform', 'unset');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
     this.renderer.setStyle(videoPin, 'width', '150px');
-    this.renderer.setStyle(videoPin, 'top', '540px');
-    this.renderer.setStyle(videoPin, 'right', '210px');
+    this.renderer.setStyle(videoPin, 'top', '530px'); //VIDEO
+    this.renderer.setStyle(videoPin, 'left', '180px'); //VIDEO
     this.renderer.setStyle(photoPin, 'width', '150px');
-    this.renderer.setStyle(photoPin, 'top', '530px');
-    this.renderer.setStyle(photoPin, 'right', '125px');
+    this.renderer.setStyle(photoPin, 'top', '512.5px'); //PHOTO
+    this.renderer.setStyle(photoPin, 'left', '260px'); //PHOTO
     this.renderer.setStyle(designPin, 'width', '150px');
-    this.renderer.setStyle(designPin, 'top', '520px');
-    this.renderer.setStyle(designPin, 'right', '40px');
+    this.renderer.setStyle(designPin, 'top', '510px'); //DESIGN
+    this.renderer.setStyle(designPin, 'left', '350px'); //DESIGN
     this.renderer.setStyle(designPin, 'rotate', '0deg');
     this.renderer.setStyle(devPin, 'width', '150px');
-    this.renderer.setStyle(devPin, 'top', '580px');
-    this.renderer.setStyle(devPin, 'right', '110px');
+    this.renderer.setStyle(devPin, 'top', '570px'); //DEV
+    this.renderer.setStyle(devPin, 'left', '280px'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '-3deg');
     this.renderer.setStyle(ductTape, 'width', '226px');
     this.renderer.setStyle(ductTape, 'top', '538px');
@@ -253,7 +273,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(ductTape, 'right', '50px');
     this.renderer.setStyle(logoPin, 'width', '103px');
     this.renderer.setStyle(logoPin, 'top', '570px');
-    this.renderer.setStyle(logoPin, 'right', '200px');
+    this.renderer.setStyle(logoPin, 'left', '220px'); //LOGO
     this.renderer.setStyle(logoPin, 'z-index', '5');
     this.renderer.setStyle(logoPin, 'rotate', '0deg');
     this.renderer.setStyle(pBtn, 'opacity', '0.7');
@@ -279,37 +299,57 @@ export class EyeBallPageComponent {
     let logoPinTop;
     let video3Top;
     let designPinTop;
+    let video2Top;
+    let videoPinTop;
     let video1Top;
     let photoPinTop;
-    if (window.innerHeight > 1080) {
+    if (window.innerHeight > 1440) {
       video5Top = 'calc(100vh - 1150px)';
       devPinTop = 'calc(100vh - 1270px)';
       video4Top = 'calc(100vh - 350px)';
       logoPinTop = 'calc(100vh - 380px)';
       video3Top = 'calc(100vh - 400px)';
       designPinTop = 'calc(100vh - 480px)';
-      video1Top = 'calc(100vh - 1200px)';
-      photoPinTop = 'calc(100vh - 1295px)';
+      video2Top = 'calc(100vh - 800px)';
+      videoPinTop = 'calc(100vh - 850px)';
+      video1Top = 'calc(100vh - 1320px)';
+      photoPinTop = 'calc(100vh - 1400px)';
+    }
+    else if ( window.innerHeight <= 1440 && window.innerHeight > 1080) {
+      video5Top = 'calc(100vh - 920px)';
+      devPinTop = 'calc(100vh - 980px)';
+      video4Top = 'calc(100vh - 300px)';
+      logoPinTop = 'calc(100vh - 320px)';
+      video3Top = 'calc(100vh - 400px)';
+      designPinTop = 'calc(100vh - 440px)';
+      video2Top = 'calc(100vh - 800px)';
+      videoPinTop = 'calc(100vh - 825px)';
+      video1Top = 'calc(100vh - 1150px)';
+      photoPinTop = 'calc(100vh - 1190px)';
     }
     else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
-      video5Top = 'calc(100vh - 850px)';
-      devPinTop = 'calc(100vh - 970px)';
+      video5Top = 'calc(100vh - 750px)';
+      devPinTop = 'calc(100vh - 810px)';
       video4Top = 'calc(100vh - 340px)';
-      logoPinTop = 'calc(100vh - 370px)';
-      video3Top = 'calc(100vh - 350px)';
-      designPinTop = 'calc(100vh - 430px)';
+      logoPinTop = 'calc(100vh - 360px)';
+      video3Top = 'calc(100vh - 250px)';
+      designPinTop = 'calc(100vh - 290px)';
+      video2Top = 'calc(100vh - 520px)';
+      videoPinTop = 'calc(100vh - 540px)';
       video1Top = 'calc(100vh - 900px)';
-      photoPinTop = 'calc(100vh - 995px)';
+      photoPinTop = 'calc(100vh - 940px)';
     }
     else{
       video5Top = 'calc(100vh - 650px)';
-      devPinTop = 'calc(100vh - 770px)';
-      video4Top = 'calc(100vh - 330px)';
-      logoPinTop = 'calc(100vh - 360px)';
-      video3Top = 'calc(100vh - 300px)';
-      designPinTop = 'calc(100vh - 380px)';
-      video1Top = 'calc(100vh - 700px)';
-      photoPinTop = 'calc(100vh - 795px)';
+      devPinTop = 'calc(100vh - 710px)';
+      video4Top = 'calc(100vh - 230px)';
+      logoPinTop = 'calc(100vh - 250px)';
+      video3Top = 'calc(100vh - 280px)';
+      designPinTop = 'calc(100vh - 330px)';
+      video2Top = 'calc(100vh - 455px)';
+      videoPinTop = 'calc(100vh - 480px)';
+      video1Top = 'calc(100vh - 740px)';
+      photoPinTop = 'calc(100vh - 775px)';
     }
 
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
@@ -339,19 +379,19 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'right', '-238px');
     this.renderer.setStyle(file, 'transform', 'rotate(-90deg)');
     this.renderer.setStyle(video5, 'top', video5Top);
-    this.renderer.setStyle(video5, 'right', '40px');
+    this.renderer.setStyle(video5, 'left', '70%'); //DEV
     this.renderer.setStyle(video5, 'rotate', '18deg');
     this.renderer.setStyle(video4, 'top', video4Top);
-    this.renderer.setStyle(video4, 'right', '110px');
+    this.renderer.setStyle(video4, 'left', '75%'); //LOGO
     this.renderer.setStyle(video4, 'z-index', '6');
     this.renderer.setStyle(video3, 'top', video3Top);
-    this.renderer.setStyle(video3, 'right', '441px');
+    this.renderer.setStyle(video3, 'left', '30%'); //DESIGN
     this.renderer.setStyle(video3, 'rotate', '-27deg');
-    this.renderer.setStyle(video2, 'top', '327px');
-    this.renderer.setStyle(video2, 'right', '506px');
+    this.renderer.setStyle(video2, 'top', video2Top);
+    this.renderer.setStyle(video2, 'left', '17.5%'); //VIDEO
     this.renderer.setStyle(video2, 'rotate', '-18deg');
     this.renderer.setStyle(video1, 'top', video1Top);
-    this.renderer.setStyle(video1, 'right', '231px');
+    this.renderer.setStyle(video1, 'left', '40%'); //PHOTO
     this.renderer.setStyle(skotch, 'top', '6px');
     this.renderer.setStyle(skotch, 'right', '19px');
     this.renderer.setStyle(skotch, 'width', '284px');
@@ -364,21 +404,21 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaPin, 'left', '50%'); //PRODIGMA
     this.renderer.setStyle(prodigmaPin, 'transform', 'translate(-50%, -50%) rotate(-50deg)');
     this.renderer.setStyle(prodigmaPin, 'rotate', 'unset');
-    this.renderer.setStyle(videoPin, 'top', '310px');
-    this.renderer.setStyle(videoPin, 'right', '608px');   
+    this.renderer.setStyle(videoPin, 'top', videoPinTop);
+    this.renderer.setStyle(videoPin, 'left', '13.5%'); //VIDEO
     this.renderer.setStyle(photoPin, 'top', photoPinTop);
-    this.renderer.setStyle(photoPin, 'right', '211px');
+    this.renderer.setStyle(photoPin, 'left', '47.5%'); //PHOTO
     this.renderer.setStyle(designPin, 'top', designPinTop);
-    this.renderer.setStyle(designPin, 'right', '438px');
+    this.renderer.setStyle(designPin, 'left', '35%'); //DESIGN
     this.renderer.setStyle(designPin, 'rotate', '45deg');
-    this.renderer.setStyle(devPin, 'top', devPinTop);
-    this.renderer.setStyle(devPin, 'right', '80px');
+    this.renderer.setStyle(devPin, 'top', devPinTop); //LOGO
+    this.renderer.setStyle(devPin, 'left', '71.5%'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '30deg');
     this.renderer.setStyle(ductTape, 'width', '527px');
     this.renderer.setStyle(ductTape, 'top', 'calc(100% - 333px)');
     this.renderer.setStyle(ductTape, 'right', '0');
-    this.renderer.setStyle(logoPin, 'top', logoPinTop);
-    this.renderer.setStyle(logoPin, 'right', '210px');
+    this.renderer.setStyle(logoPin, 'top', logoPinTop); //LOGO
+    this.renderer.setStyle(logoPin, 'left', '72.5%'); //LOGO
     this.renderer.setStyle(logoPin, 'z-index', '7');
     this.renderer.setStyle(logoPin, 'rotate', '-45deg');
     this.renderer.setStyle(scrBtn, 'opacity', '0');
@@ -414,19 +454,19 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'right', '36px');
     this.renderer.setStyle(file, 'transform', 'rotate(0deg)');
     this.renderer.setStyle(video5, 'top', '230px');
-    this.renderer.setStyle(video5, 'right', '41px');
+    this.renderer.setStyle(video5, 'left', '150px'); //DEV
     this.renderer.setStyle(video5, 'rotate', '2deg');
     this.renderer.setStyle(video4, 'top', '165px');
-    this.renderer.setStyle(video4, 'right', '98px');
+    this.renderer.setStyle(video4, 'left', '100px'); //LOGO
     this.renderer.setStyle(video4, 'z-index', '5');
     this.renderer.setStyle(video3, 'top', '106px');
-    this.renderer.setStyle(video3, 'right', '40px');
+    this.renderer.setStyle(video3, 'left', '155px'); //DESIGN
     this.renderer.setStyle(video3, 'rotate', '2deg');
     this.renderer.setStyle(video2, 'top', '119px');
-    this.renderer.setStyle(video2, 'right', '100px');
+    this.renderer.setStyle(video2, 'left', '100px'); //VIDEO
     this.renderer.setStyle(video2, 'rotate', '4deg');
     this.renderer.setStyle(video1, 'top', '75px');
-    this.renderer.setStyle(video1, 'right', '138px');
+    this.renderer.setStyle(video1, 'left', '60px'); //PHOTO
     this.renderer.setStyle(skotch, 'top', '0');
     this.renderer.setStyle(skotch, 'right', '-1px');
     this.renderer.setStyle(skotch, 'width', '158px');
@@ -440,20 +480,20 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaPin, 'transform', 'unset');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
     this.renderer.setStyle(videoPin, 'top', '354px');
-    this.renderer.setStyle(videoPin, 'right', '132px');
+    this.renderer.setStyle(videoPin, 'left', '117.5px'); //VIDEO
     this.renderer.setStyle(photoPin, 'top', '350px');
-    this.renderer.setStyle(photoPin, 'right', '83px');
+    this.renderer.setStyle(photoPin, 'left', '170px'); //PHOTO
     this.renderer.setStyle(designPin, 'top', '347px');
-    this.renderer.setStyle(designPin, 'right', '31px');
+    this.renderer.setStyle(designPin, 'left', '220px'); //DESIGN
     this.renderer.setStyle(designPin, 'rotate', '0deg');
     this.renderer.setStyle(devPin, 'top', '384px');
-    this.renderer.setStyle(devPin, 'right', '68px');
+    this.renderer.setStyle(devPin, 'left', '180px'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '-3deg');
     this.renderer.setStyle(ductTape, 'width', '147px');
     this.renderer.setStyle(ductTape, 'right', '36px');
     this.renderer.setStyle(ductTape, 'top', '363px');
     this.renderer.setStyle(logoPin, 'top', '376px');
-    this.renderer.setStyle(logoPin, 'right', '126px');
+    this.renderer.setStyle(logoPin, 'left', '135px'); //LOGO
     this.renderer.setStyle(logoPin, 'z-index', '5');
     this.renderer.setStyle(logoPin, 'rotate', '0deg');
     this.renderer.setStyle(scrBtn, 'opacity', 'unset');
