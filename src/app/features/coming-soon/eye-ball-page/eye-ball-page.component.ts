@@ -9,6 +9,7 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 })
 export class EyeBallPageComponent {
   viewportWidth = window.innerWidth;
+  isStyled = false;
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   @HostListener('window:keydown', ['$event'])
@@ -105,6 +106,7 @@ export class EyeBallPageComponent {
     
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
+    const appointment = this.el.nativeElement.querySelector('.appointment');
     const video5 = this.el.nativeElement.querySelector('.video5-container');
     const video4 = this.el.nativeElement.querySelector('.video4-container');
     const video3 = this.el.nativeElement.querySelector('.video3-container');
@@ -126,6 +128,7 @@ export class EyeBallPageComponent {
     const tape = this.el.nativeElement.querySelector('.tape');
     const coming = this.el.nativeElement.querySelector('.coming');
     const soon = this.el.nativeElement.querySelector('.soon');
+    this.renderer.setStyle(appointment, 'display', 'none');
     this.renderer.setStyle(fileContainer, 'width', '1440px');
     this.renderer.setStyle(fileContainer, 'height', '100vh');
     this.renderer.setStyle(fileContainer, 'top', '0');
@@ -200,6 +203,7 @@ export class EyeBallPageComponent {
   resetStyle() {
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
+    const appointment = this.el.nativeElement.querySelector('.appointment');
     const video5 = this.el.nativeElement.querySelector('.video5-container');
     const video4 = this.el.nativeElement.querySelector('.video4-container');
     const video3 = this.el.nativeElement.querySelector('.video3-container');
@@ -221,6 +225,7 @@ export class EyeBallPageComponent {
     const tape = this.el.nativeElement.querySelector('.tape');
     const coming = this.el.nativeElement.querySelector('.coming');
     const soon = this.el.nativeElement.querySelector('.soon');
+    this.renderer.setStyle(appointment, 'display', 'unset');
     this.renderer.setStyle(fileContainer, 'width', '532px');
     this.renderer.setStyle(fileContainer, 'height', '739px');
     this.renderer.setStyle(fileContainer, 'top', '5vh');
@@ -279,12 +284,12 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(pBtn, 'opacity', '0.7');
     this.renderer.setStyle(links, 'opacity', '0.7');
     this.renderer.setStyle(comingSoon, 'top', '223px');
-    this.renderer.setStyle(where, 'top', '129px');
+    this.renderer.setStyle(where, 'top', '190px');
     this.renderer.setStyle(where, 'left', '88px');
     this.renderer.setStyle(where, 'font-size', '1.4rem');
     this.renderer.setStyle(where, 'padding', '0 1.5rem');
     this.renderer.setStyle(tape, 'width', '572px');
-    this.renderer.setStyle(tape, 'top', '9px');
+    this.renderer.setStyle(tape, 'top', '80px');
     this.renderer.setStyle(tape, 'left', '-119px');
     this.renderer.setStyle(coming, 'font-size', '30rem');
     this.renderer.setStyle(coming, 'line-height', '15rem');
@@ -351,6 +356,7 @@ export class EyeBallPageComponent {
       video1Top = 'calc(100vh - 740px)';
       photoPinTop = 'calc(100vh - 775px)';
     }
+    this.isStyled = true;
 
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
@@ -371,6 +377,7 @@ export class EyeBallPageComponent {
     const scrBtn = this.el.nativeElement.querySelector('.screen-container');
     const links = this.el.nativeElement.querySelector('.links-container');
     const comingSoon = this.el.nativeElement.querySelector('.coming-soon-container');
+    const appointment = this.el.nativeElement.querySelector('.appointment');
     this.renderer.setStyle(fileContainer, 'width', '100vw');
     this.renderer.setStyle(fileContainer, 'height', '100vh');
     this.renderer.setStyle(fileContainer, 'top', '0');
@@ -424,9 +431,12 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(scrBtn, 'opacity', '0');
     this.renderer.setStyle(links, 'opacity', '0');
     this.renderer.setStyle(comingSoon, 'top', '53px');
+    this.renderer.setStyle(appointment, 'display', 'none');
   }
 
   resetStyleForTablet() {
+    this.isStyled = false;
+
     const fileContainer = this.el.nativeElement.querySelector('.file-container');
     const file = this.el.nativeElement.querySelector('.file-icon');
     const video5 = this.el.nativeElement.querySelector('.video5-container');
@@ -446,6 +456,7 @@ export class EyeBallPageComponent {
     const scrBtn = this.el.nativeElement.querySelector('.screen-container');
     const links = this.el.nativeElement.querySelector('.links-container');
     const comingSoon = this.el.nativeElement.querySelector('.coming-soon-container');
+    const appointment = this.el.nativeElement.querySelector('.appointment');
     this.renderer.setStyle(fileContainer, 'width', '343px');
     this.renderer.setStyle(fileContainer, 'height', '497px');
     this.renderer.setStyle(fileContainer, 'top', '116px');
@@ -499,5 +510,11 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(scrBtn, 'opacity', 'unset');
     this.renderer.setStyle(links, 'opacity', '0.7');
     this.renderer.setStyle(comingSoon, 'top', '223px');
+    this.renderer.setStyle(appointment, 'display', 'unset');
   }
+
+  openAppointment(): void {
+    window.open('https://tally.so/r/mJxOxR', '_blank');
+  }
+  
 }

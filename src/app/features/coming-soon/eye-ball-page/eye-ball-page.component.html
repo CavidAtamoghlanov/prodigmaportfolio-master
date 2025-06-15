@@ -11,10 +11,15 @@
 
     <div class="main-container">
         <div class="coming-soon-container">
+            <div class="appointment">
+                <button type="button" class="appointment-btn" (click)="openAppointment()">
+                    <img class="appointment-img" src="/assets/params/images/coming-soon/appointment.gif" alt="">
+                </button>
+            </div>
             <div class="coming">Coming</div>
             <div class="soon">soon</div>
-            <div class="where">Where Vision Meets Innovation</div>
-            <div class="tape">
+            <div class="where" [class.important-style]="isStyled">Where Vision Meets Innovation</div>
+            <div class="tape" [class.important-style]="isStyled">
                 <img src="/assets/params/images/coming-soon/tape.gif" alt="">
             </div>
         </div>

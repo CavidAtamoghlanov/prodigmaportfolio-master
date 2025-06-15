@@ -56,22 +56,46 @@
     text-align: end;
     transition: top 0.5s ease-in-out;
 
+    .appointment{
+        width: 100%;
+        height: auto;
+        text-align: end;
+        transition: all 0.5s ease-in-out;
+
+        .appointment-btn {
+            all: unset;
+            display: inline-block;
+            width: 210px;
+            height: 50px;
+            cursor: pointer;            
+        }
+
+        .appointment-img {
+            width: 100% !important;
+            height: auto;
+            background-color: transparent;
+            object-fit: cover;
+        }
+    }
+
     .coming {
         color: #D33D25;
         font-size: 30rem;
         line-height: 15rem;
         transition: font-size 0.5s ease-in-out, line-height 0.5s ease-in-out;
+        pointer-events: none;
     }
 
     .soon {
         font-size: 15rem;
         line-height: 8rem;
         transition: font-size 0.5s ease-in-out, line-height 0.5s ease-in-out;
+        pointer-events: none;
     }
 
     .where{
         position: absolute;
-        top: 129px;
+        top: 190px;
         left: 88px;
         font-size: 1.4rem;
         z-index: 5;
@@ -84,7 +108,7 @@
     
     .tape{
         position: absolute;
-        top: 9px;
+        top: 80px;
         left: -119px;
         width: 572px;
         z-index: 5;
@@ -345,6 +369,11 @@ a {
         width: 100vw !important;
     }
 
+    .appointment-btn {
+        width: 140px !important;
+        height: 35px !important;
+    }
+
     .coming{
         font-size: 15rem !important;
         line-height: 7.5rem !important;
@@ -355,14 +384,15 @@ a {
         line-height: 4rem !important;
     }
 
-    .where{
-        top: 68px !important;
+    .coming-soon-container .where {
+        top: 110px;
         left: 45px !important;
         font-size: 0.7rem !important;
         padding: 0 0.75rem !important;
     }
 
-    .tape{
+    .coming-soon-container .tape{
+        top: 60px;
         left: -59px !important;
         width: 296px !important;
     }
@@ -614,6 +644,14 @@ a {
     .prodigma-mmc-2024,
     .all-rights-reserved {
         text-align: start;
+    }
+
+    .where.important-style {
+        top: 65px !important;
+    }
+      
+    .tape.important-style {
+        top: 15px !important;
     }
 
 }

@@ -11,4 +11,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './eye-ball-mobile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EyeBallMobileComponent { }
+export class EyeBallMobileComponent {
+
+  openAppointment(): void {
+    window.open('https://tally.so/r/mJxOxR', '_blank');
+  }
+ }
