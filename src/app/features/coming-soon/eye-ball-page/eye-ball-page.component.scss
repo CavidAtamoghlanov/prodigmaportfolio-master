@@ -22,7 +22,6 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
-    opacity: 60%;
 }
 
 .eye-ball {
@@ -30,13 +29,15 @@
     z-index: 1;
 }
 
-.light-overlay {
+.dust-grain {
     @extend .overlay;
+    opacity: 60%;
     z-index: 2;
 }
 
-.dust-grain {
+.light-overlay {
     @extend .overlay;
+    opacity: 50%;
     z-index: 3;
 }
 
@@ -257,7 +258,7 @@
     .duct-tape-container {
         @extend .pin-container;
         width: 226px;
-        top: 538px;
+        top: 545px;
         right: 50px;
     }
     
@@ -647,11 +648,11 @@ a {
     }
 
     .where.important-style {
-        top: 65px !important;
+        top: 105px !important;
     }
       
     .tape.important-style {
-        top: 15px !important;
+        top: 55px !important;
     }
 
 }

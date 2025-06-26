@@ -128,7 +128,7 @@ export class EyeBallPageComponent {
     const tape = this.el.nativeElement.querySelector('.tape');
     const coming = this.el.nativeElement.querySelector('.coming');
     const soon = this.el.nativeElement.querySelector('.soon');
-    this.renderer.setStyle(appointment, 'display', 'none');
+    this.renderer.setStyle(appointment, 'opacity', '0');
     this.renderer.setStyle(fileContainer, 'width', '1440px');
     this.renderer.setStyle(fileContainer, 'height', '100vh');
     this.renderer.setStyle(fileContainer, 'top', '0');
@@ -187,12 +187,12 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(pBtn, 'opacity', '0');
     this.renderer.setStyle(links, 'opacity', '0');
     this.renderer.setStyle(comingSoon, 'top', '53px');
-    this.renderer.setStyle(where, 'top', '83px');
+    this.renderer.setStyle(where, 'top', '143px');
     this.renderer.setStyle(where, 'left', '57px');
     this.renderer.setStyle(where, 'font-size', '1rem');
     this.renderer.setStyle(where, 'padding', '0 0.7rem');
     this.renderer.setStyle(tape, 'width', '423px');
-    this.renderer.setStyle(tape, 'top', '7px');
+    this.renderer.setStyle(tape, 'top', '67px');
     this.renderer.setStyle(tape, 'left', '-103px');
     this.renderer.setStyle(coming, 'font-size', '20rem');
     this.renderer.setStyle(coming, 'line-height', '10rem');
@@ -225,7 +225,7 @@ export class EyeBallPageComponent {
     const tape = this.el.nativeElement.querySelector('.tape');
     const coming = this.el.nativeElement.querySelector('.coming');
     const soon = this.el.nativeElement.querySelector('.soon');
-    this.renderer.setStyle(appointment, 'display', 'unset');
+    this.renderer.setStyle(appointment, 'opacity', '1');
     this.renderer.setStyle(fileContainer, 'width', '532px');
     this.renderer.setStyle(fileContainer, 'height', '739px');
     this.renderer.setStyle(fileContainer, 'top', '5vh');
@@ -431,7 +431,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(scrBtn, 'opacity', '0');
     this.renderer.setStyle(links, 'opacity', '0');
     this.renderer.setStyle(comingSoon, 'top', '53px');
-    this.renderer.setStyle(appointment, 'display', 'none');
+    this.renderer.setStyle(appointment, 'opacity', '0');
   }
 
   resetStyleForTablet() {
@@ -510,7 +510,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(scrBtn, 'opacity', 'unset');
     this.renderer.setStyle(links, 'opacity', '0.7');
     this.renderer.setStyle(comingSoon, 'top', '223px');
-    this.renderer.setStyle(appointment, 'display', 'unset');
+    this.renderer.setStyle(appointment, 'opacity', '1');
   }
 
   openAppointment(): void {

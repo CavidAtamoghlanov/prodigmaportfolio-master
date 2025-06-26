@@ -14,17 +14,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
   pointer-events: none;
 }
 
 .dust-grain {
   @extend .overlay;
+  opacity: 60%;
   z-index: 1;
 }
 
 .light-overlay {
   @extend .overlay;
+  opacity: 50%;
   z-index: 2;
 }
 
