@@ -80,16 +80,16 @@ export class EyeBallPageComponent {
       photoPinTop = 'calc(100vh - 1230px)';
     }
     else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
-      video5Top = 'calc(100vh - 850px)';
-      devPinTop = 'calc(100vh - 970px)';
-      video4Top = 'calc(100vh - 340px)';
-      logoPinTop = 'calc(100vh - 370px)';
-      video3Top = 'calc(100vh - 350px)';
-      designPinTop = 'calc(100vh - 430px)';
-      video2Top = 'calc(100vh - 600px)';
-      videoPinTop = 'calc(100vh - 650px)';
-      video1Top = 'calc(100vh - 920px)';
-      photoPinTop = 'calc(100vh - 1015px)';
+      video5Top = 'calc(100vh - 800px)';
+      devPinTop = 'calc(100vh - 920px)';
+      video4Top = 'calc(100vh - 310px)';
+      logoPinTop = 'calc(100vh - 340px)';
+      video3Top = 'calc(100vh - 320px)';
+      designPinTop = 'calc(100vh - 400px)';
+      video2Top = 'calc(100vh - 550px)';
+      videoPinTop = 'calc(100vh - 600px)';
+      video1Top = 'calc(100vh - 880px)';
+      photoPinTop = 'calc(100vh - 975px)';
     }
     else{
       video5Top = 'calc(100vh - 650px)';
@@ -176,8 +176,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(devPin, 'left', '77.5%'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '30deg');
     this.renderer.setStyle(ductTape, 'width', '678px');
-    this.renderer.setStyle(ductTape, 'top', 'unset');
-    this.renderer.setStyle(ductTape, 'bottom', '0');
+    this.renderer.setStyle(ductTape, 'bottom', '-5px');
     this.renderer.setStyle(ductTape, 'right', '0');
     this.renderer.setStyle(logoPin, 'width', '150px');
     this.renderer.setStyle(logoPin, 'top', logoPinTop); //LOGO
@@ -187,12 +186,12 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(pBtn, 'opacity', '0');
     this.renderer.setStyle(links, 'opacity', '0');
     this.renderer.setStyle(comingSoon, 'top', '53px');
-    this.renderer.setStyle(where, 'top', '143px');
+    this.renderer.setStyle(where, 'top', '80px');
     this.renderer.setStyle(where, 'left', '57px');
     this.renderer.setStyle(where, 'font-size', '1rem');
     this.renderer.setStyle(where, 'padding', '0 0.7rem');
     this.renderer.setStyle(tape, 'width', '423px');
-    this.renderer.setStyle(tape, 'top', '67px');
+    this.renderer.setStyle(tape, 'top', '0');
     this.renderer.setStyle(tape, 'left', '-103px');
     this.renderer.setStyle(coming, 'font-size', '20rem');
     this.renderer.setStyle(coming, 'line-height', '10rem');
@@ -259,37 +258,36 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(prodigmaPin, 'transform', 'unset');
     this.renderer.setStyle(prodigmaPin, 'rotate', '0deg');
     this.renderer.setStyle(videoPin, 'width', '150px');
-    this.renderer.setStyle(videoPin, 'top', '530px'); //VIDEO
+    this.renderer.setStyle(videoPin, 'top', '540px'); //VIDEO
     this.renderer.setStyle(videoPin, 'left', '180px'); //VIDEO
     this.renderer.setStyle(photoPin, 'width', '150px');
-    this.renderer.setStyle(photoPin, 'top', '512.5px'); //PHOTO
+    this.renderer.setStyle(photoPin, 'top', '520px'); //PHOTO
     this.renderer.setStyle(photoPin, 'left', '260px'); //PHOTO
     this.renderer.setStyle(designPin, 'width', '150px');
-    this.renderer.setStyle(designPin, 'top', '510px'); //DESIGN
+    this.renderer.setStyle(designPin, 'top', '520px'); //DESIGN
     this.renderer.setStyle(designPin, 'left', '350px'); //DESIGN
     this.renderer.setStyle(designPin, 'rotate', '0deg');
     this.renderer.setStyle(devPin, 'width', '150px');
-    this.renderer.setStyle(devPin, 'top', '570px'); //DEV
+    this.renderer.setStyle(devPin, 'top', '575px'); //DEV
     this.renderer.setStyle(devPin, 'left', '280px'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '-3deg');
     this.renderer.setStyle(ductTape, 'width', '226px');
-    this.renderer.setStyle(ductTape, 'top', '538px');
-    this.renderer.setStyle(ductTape, 'bottom', 'unset');
+    this.renderer.setStyle(ductTape, 'bottom', '45px');
     this.renderer.setStyle(ductTape, 'right', '50px');
     this.renderer.setStyle(logoPin, 'width', '103px');
-    this.renderer.setStyle(logoPin, 'top', '570px');
+    this.renderer.setStyle(logoPin, 'top', '580px');
     this.renderer.setStyle(logoPin, 'left', '220px'); //LOGO
     this.renderer.setStyle(logoPin, 'z-index', '5');
     this.renderer.setStyle(logoPin, 'rotate', '0deg');
     this.renderer.setStyle(pBtn, 'opacity', '0.7');
     this.renderer.setStyle(links, 'opacity', '0.7');
     this.renderer.setStyle(comingSoon, 'top', '223px');
-    this.renderer.setStyle(where, 'top', '190px');
+    this.renderer.setStyle(where, 'top', '125px');
     this.renderer.setStyle(where, 'left', '88px');
     this.renderer.setStyle(where, 'font-size', '1.4rem');
     this.renderer.setStyle(where, 'padding', '0 1.5rem');
     this.renderer.setStyle(tape, 'width', '572px');
-    this.renderer.setStyle(tape, 'top', '80px');
+    this.renderer.setStyle(tape, 'top', '15px');
     this.renderer.setStyle(tape, 'left', '-119px');
     this.renderer.setStyle(coming, 'font-size', '30rem');
     this.renderer.setStyle(coming, 'line-height', '15rem');

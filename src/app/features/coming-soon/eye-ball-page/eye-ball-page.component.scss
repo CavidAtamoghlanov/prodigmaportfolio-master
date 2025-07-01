@@ -100,7 +100,7 @@
 
     .where{
         position: absolute;
-        top: 190px;
+        top: 125px;
         left: 88px;
         font-size: 1.4rem;
         z-index: 5;
@@ -113,7 +113,7 @@
     
     .tape{
         position: absolute;
-        top: 80px;
+        top: 15px;
         left: -119px;
         width: 572px;
         z-index: 5;
@@ -267,14 +267,14 @@
     .duct-tape-container {
         @extend .pin-container;
         width: 226px;
-        top: 545px;
+        bottom: 45px;
         right: 50px;
     }
     
     .logo-pin-container {
         @extend .pin-container;
         width: 103px;
-        top: 570px;
+        top: 580px;
         left: 220px;
     }
     
@@ -295,28 +295,28 @@
     .video-pin-container {
         @extend .pin-container;
         width: 150px;
-        top: 530px;
+        top: 540px;
         left: 180px;
     }
     
     .photo-pin-container {
         @extend .pin-container;
         width: 150px;
-        top: 512.5px;
+        top: 520px;
         left: 260px;
     }
     
     .design-pin-container {
         @extend .pin-container;
         width: 150px;
-        top: 510px;
+        top: 520px;
         left: 350px;
     }
     
     .dev-pin-container {
         @extend .pin-container;
         width: 150px;
-        top: 570px;
+        top: 575px;
         left: 280px;
     }
 }
