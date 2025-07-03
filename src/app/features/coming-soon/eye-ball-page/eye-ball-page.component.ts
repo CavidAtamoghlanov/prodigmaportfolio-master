@@ -55,7 +55,7 @@ export class EyeBallPageComponent {
     let videoPinTop;
     let video1Top;
     let photoPinTop;
-    if (window.innerHeight > 1440) {
+    if (window.screen.height > 1440) {
       video5Top = 'calc(100vh - 1150px)';
       devPinTop = 'calc(100vh - 1270px)';
       video4Top = 'calc(100vh - 350px)';
@@ -67,7 +67,7 @@ export class EyeBallPageComponent {
       video1Top = 'calc(100vh - 1320px)';
       photoPinTop = 'calc(100vh - 1400px)';
     }
-    else if ( window.innerHeight <= 1440 && window.innerHeight > 1080) {
+    else if ( window.screen.height <= 1440 && window.screen.height > 1080) {
       video5Top = 'calc(100vh - 1020px)';
       devPinTop = 'calc(100vh - 1140px)';
       video4Top = 'calc(100vh - 350px)';
@@ -79,7 +79,7 @@ export class EyeBallPageComponent {
       video1Top = 'calc(100vh - 1150px)';
       photoPinTop = 'calc(100vh - 1230px)';
     }
-    else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
+    else if (window.screen.height <= 1080 && window.screen.height > 900) {
       video5Top = 'calc(100vh - 800px)';
       devPinTop = 'calc(100vh - 920px)';
       video4Top = 'calc(100vh - 310px)';
@@ -306,7 +306,7 @@ export class EyeBallPageComponent {
     let videoPinTop;
     let video1Top;
     let photoPinTop;
-    if (window.innerHeight > 1440) {
+    if (window.screen.height > 1440) {
       video5Top = 'calc(100vh - 1150px)';
       devPinTop = 'calc(100vh - 1270px)';
       video4Top = 'calc(100vh - 350px)';
@@ -318,7 +318,7 @@ export class EyeBallPageComponent {
       video1Top = 'calc(100vh - 1320px)';
       photoPinTop = 'calc(100vh - 1400px)';
     }
-    else if ( window.innerHeight <= 1440 && window.innerHeight > 1080) {
+    else if ( window.screen.height <= 1440 && window.screen.height > 1080) {
       video5Top = 'calc(100vh - 920px)';
       devPinTop = 'calc(100vh - 980px)';
       video4Top = 'calc(100vh - 300px)';
@@ -330,7 +330,7 @@ export class EyeBallPageComponent {
       video1Top = 'calc(100vh - 1150px)';
       photoPinTop = 'calc(100vh - 1190px)';
     }
-    else if (window.innerHeight <= 1080 && window.innerHeight > 900) {
+    else if (window.screen.height <= 1080 && window.screen.height > 900) {
       video5Top = 'calc(100vh - 750px)';
       devPinTop = 'calc(100vh - 810px)';
       video4Top = 'calc(100vh - 340px)';
