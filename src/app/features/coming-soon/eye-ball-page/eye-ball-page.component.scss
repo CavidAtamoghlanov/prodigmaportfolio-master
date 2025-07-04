@@ -207,6 +207,7 @@
         position: absolute;
         top: 0px;
         right: -1px;
+        width: 234px;
         z-index: 7;
         transition: all 0.5s ease-in-out;
     }
@@ -395,14 +396,14 @@ a {
     }
 
     .coming-soon-container .where {
-        top: 110px;
+        top: 65px;
         left: 45px !important;
         font-size: 0.7rem !important;
         padding: 0 0.75rem !important;
     }
 
     .coming-soon-container .tape{
-        top: 60px;
+        top: 15px;
         left: -59px !important;
         width: 296px !important;
     }
@@ -657,11 +658,11 @@ a {
     }
 
     .where.important-style {
-        top: 105px !important;
+        top: 65px !important;
     }
       
     .tape.important-style {
-        top: 55px !important;
+        top: 15px !important;
     }
 
 }

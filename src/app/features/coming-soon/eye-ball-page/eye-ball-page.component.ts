@@ -56,8 +56,8 @@ export class EyeBallPageComponent {
     let video1Top;
     let photoPinTop;
     if (window.screen.height > 1440) {
-      video5Top = 'calc(100vh - 1150px)';
-      devPinTop = 'calc(100vh - 1270px)';
+      video5Top = 'calc(100vh - 1100px)';
+      devPinTop = 'calc(100vh - 1220px)';
       video4Top = 'calc(100vh - 350px)';
       logoPinTop = 'calc(100vh - 380px)';
       video3Top = 'calc(100vh - 400px)';
@@ -68,8 +68,8 @@ export class EyeBallPageComponent {
       photoPinTop = 'calc(100vh - 1400px)';
     }
     else if ( window.screen.height <= 1440 && window.screen.height > 1080) {
-      video5Top = 'calc(100vh - 1020px)';
-      devPinTop = 'calc(100vh - 1140px)';
+      video5Top = 'calc(100vh - 970px)';
+      devPinTop = 'calc(100vh - 1090px)';
       video4Top = 'calc(100vh - 350px)';
       logoPinTop = 'calc(100vh - 380px)';
       video3Top = 'calc(100vh - 400px)';
@@ -80,8 +80,8 @@ export class EyeBallPageComponent {
       photoPinTop = 'calc(100vh - 1230px)';
     }
     else if (window.screen.height <= 1080 && window.screen.height > 900) {
-      video5Top = 'calc(100vh - 800px)';
-      devPinTop = 'calc(100vh - 920px)';
+      video5Top = 'calc(100vh - 750px)';
+      devPinTop = 'calc(100vh - 870px)';
       video4Top = 'calc(100vh - 310px)';
       logoPinTop = 'calc(100vh - 340px)';
       video3Top = 'calc(100vh - 320px)';
@@ -92,8 +92,8 @@ export class EyeBallPageComponent {
       photoPinTop = 'calc(100vh - 975px)';
     }
     else{
-      video5Top = 'calc(100vh - 650px)';
-      devPinTop = 'calc(100vh - 770px)';
+      video5Top = 'calc(100vh - 600px)';
+      devPinTop = 'calc(100vh - 720px)';
       video4Top = 'calc(100vh - 330px)';
       logoPinTop = 'calc(100vh - 360px)';
       video3Top = 'calc(100vh - 300px)';
@@ -137,7 +137,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(file, 'right', '-238px');
     this.renderer.setStyle(file, 'transform', 'rotate(-90deg)');
     this.renderer.setStyle(video5, 'top', video5Top); //DEV
-    this.renderer.setStyle(video5, 'left', '77.5%'); //DEV
+    this.renderer.setStyle(video5, 'left', '70%'); //DEV
     this.renderer.setStyle(video5, 'rotate', '18deg');
     this.renderer.setStyle(video4, 'top', video4Top); //LOGO
     this.renderer.setStyle(video4, 'left', '75%'); //LOGO
@@ -152,9 +152,10 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(video1, 'left', '37.5%'); //PHOTO
     this.renderer.setStyle(skotch, 'top', '7px');
     this.renderer.setStyle(skotch, 'right', '45px');
-    this.renderer.setStyle(prodigmaOrg, 'width', '201px');
-    this.renderer.setStyle(prodigmaOrg, 'top', '68px');
-    this.renderer.setStyle(prodigmaOrg, 'right', '63px');
+    this.renderer.setStyle(skotch, 'width', '300px');
+    this.renderer.setStyle(prodigmaOrg, 'width', '260px');
+    this.renderer.setStyle(prodigmaOrg, 'top', '85px');
+    this.renderer.setStyle(prodigmaOrg, 'right', '65px');
     this.renderer.setStyle(prodigmaOrg, 'rotate', '30deg');
     this.renderer.setStyle(prodigmaPin, 'width', '200px');
     this.renderer.setStyle(prodigmaPin, 'top', '50%'); //PRODIGMA
@@ -173,7 +174,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(designPin, 'rotate', '45deg');
     this.renderer.setStyle(devPin, 'width', '200px');
     this.renderer.setStyle(devPin, 'top', devPinTop); //DEV
-    this.renderer.setStyle(devPin, 'left', '77.5%'); //DEV
+    this.renderer.setStyle(devPin, 'left', '70%'); //DEV
     this.renderer.setStyle(devPin, 'rotate', '30deg');
     this.renderer.setStyle(ductTape, 'width', '678px');
     this.renderer.setStyle(ductTape, 'bottom', '-5px');
@@ -248,6 +249,7 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(video1, 'left', '80px'); //PHOTO
     this.renderer.setStyle(skotch, 'top', '0');
     this.renderer.setStyle(skotch, 'right', '-1px');
+    this.renderer.setStyle(skotch, 'width', '234px');
     this.renderer.setStyle(prodigmaOrg, 'width', '164px');
     this.renderer.setStyle(prodigmaOrg, 'top', '625px');
     this.renderer.setStyle(prodigmaOrg, 'right', '299px');
