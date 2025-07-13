@@ -5,6 +5,8 @@
     <video autoplay loop [muted]="true" class="light-overlay">
         <source src="/assets/params/images/coming-soon/light-leaks-overlay.mp4" type="video/mp4">
     </video>
+    <img class="grunge" src="/assets/params/images/coming-soon/grunge.png" alt="">
+
     <div class="section section-1">
         <div class="coming-soon-container">
             <div class="coming">Coming</div>
@@ -17,69 +19,107 @@
         </div>
         <div class="grid">
             <img src="/assets/params/images/coming-soon/grid.svg" alt="">
-            <div class="video5-container">
-                <img src="/assets/params/images/coming-soon/frame-5.svg" class="frame-prodigma" alt="">
-                <video autoplay loop [muted]="true" class="video-5">
-                    <source src="/assets/params/images/coming-soon/video-5.mp4" type="video/mp4">
-                </video>
-                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka" alt="">
-                <img src="/assets/params/images/coming-soon/texture-5.png" class="plyonka" alt="">
+
+            <div
+              #videoContainer
+              class="video5-container video-container"
+              [attr.data-z]="zIndexOrder[0]"
+              [ngStyle]="{ 'z-index': zIndexOrder[0], 'transform': 'translate(-50%, -50%) rotate(' + getRotateAngle(zIndexOrder[0]) + ')' }"
+              [class.top-video]="zIndexOrder[0] === 5"
+            >
+              <img src="/assets/params/images/coming-soon/frame.png" class="frame-prodigma" alt="" />
+              <video autoplay loop [muted]="true" class="video-5">
+                <source src="/assets/params/images/coming-soon/video-5.mp4" type="video/mp4" />
+              </video>
+              <img src="/assets/params/images/coming-soon/frame-plyonka.png" class="plyonka" alt="" />
+              <img src="/assets/params/images/coming-soon/frame-texture.png" class="plyonka" alt="" />
             </div>
-            <div class="video4-container">
-                <img src="/assets/params/images/coming-soon/frame-4.svg" class="frame-prodigma" alt="">
-                <video autoplay loop [muted]="true" class="video-4">
-                    <source src="/assets/params/images/coming-soon/video-4.mp4" type="video/mp4">
-                </video>
-                <img src="/assets/params/images/coming-soon/plyonka-4.png" class="plyonka" alt="">
-                <img src="/assets/params/images/coming-soon/texture-4.png" class="plyonka" alt="">
+
+            <div
+              #videoContainer
+              class="video4-container video-container"
+              [attr.data-z]="zIndexOrder[1]"
+              [ngStyle]="{ 'z-index': zIndexOrder[1], 'transform': 'translate(-50%, -50%) rotate(' + getRotateAngle(zIndexOrder[1]) + ')' }"
+              [class.top-video]="zIndexOrder[1] === 5"
+            >
+              <img src="/assets/params/images/coming-soon/frame.png" class="frame-prodigma" alt="" />
+              <video autoplay loop [muted]="true" class="video-4">
+                <source src="/assets/params/images/coming-soon/video-4.mp4" type="video/mp4" />
+              </video>
+              <img src="/assets/params/images/coming-soon/frame-plyonka.png" class="plyonka" alt="" />
+              <img src="/assets/params/images/coming-soon/frame-texture.png" class="plyonka" alt="" />
             </div>
-            <div class="video3-container">
-                <img src="/assets/params/images/coming-soon/frame-5.svg" class="frame-prodigma" alt="">
-                <video autoplay loop [muted]="true" class="video-3">
-                    <source src="/assets/params/images/coming-soon/video-3.mp4" type="video/mp4">
-                </video>
-                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka" alt="">
-                <img src="/assets/params/images/coming-soon/texture-5.png" class="plyonka" alt="">
+
+            <div
+              #videoContainer
+              class="video3-container video-container"
+              [attr.data-z]="zIndexOrder[2]"
+              [ngStyle]="{ 'z-index': zIndexOrder[2], 'transform': 'translate(-50%, -50%) rotate(' + getRotateAngle(zIndexOrder[2]) + ')' }"
+              [class.top-video]="zIndexOrder[2] === 5"
+            >
+              <img src="/assets/params/images/coming-soon/frame.png" class="frame-prodigma" alt="" />
+              <video autoplay loop [muted]="true" class="video-3">
+                <source src="/assets/params/images/coming-soon/video-3.mp4" type="video/mp4" />
+              </video>
+              <img src="/assets/params/images/coming-soon/frame-plyonka.png" class="plyonka" alt="" />
+              <img src="/assets/params/images/coming-soon/frame-texture.png" class="plyonka" alt="" />
             </div>
-            <div class="video2-container">
-                <img src="/assets/params/images/coming-soon/frame-5.svg" class="frame-prodigma" alt="">
-                <video autoplay loop [muted]="true" class="video-2">
-                    <source src="/assets/params/images/coming-soon/video-2.mp4" type="video/mp4">
-                </video>
-                <img src="/assets/params/images/coming-soon/plyonka-5.png" class="plyonka" alt="">
-                <img src="/assets/params/images/coming-soon/texture-5.png" class="plyonka" alt="">
+
+            <div
+              #videoContainer
+              class="video2-container video-container"
+              [attr.data-z]="zIndexOrder[3]"
+              [ngStyle]="{ 'z-index': zIndexOrder[3], 'transform': 'translate(-50%, -50%) rotate(' + getRotateAngle(zIndexOrder[3]) + ')' }"
+              [class.top-video]="zIndexOrder[3] === 5"
+            >
+              <img src="/assets/params/images/coming-soon/frame.png" class="frame-prodigma" alt="" />
+              <video autoplay loop [muted]="true" class="video-2">
+                <source src="/assets/params/images/coming-soon/video-2.mp4" type="video/mp4" />
+              </video>
+              <img src="/assets/params/images/coming-soon/frame-plyonka.png" class="plyonka" alt="" />
+              <img src="/assets/params/images/coming-soon/frame-texture.png" class="plyonka" alt="" />
             </div>
-            <div class="video1-container">
-                <img src="/assets/params/images/coming-soon/frame-4.svg" class="frame-prodigma" alt="">
-                <video autoplay loop [muted]="true" class="video-1">
-                    <source src="/assets/params/images/coming-soon/video-1.mp4" type="video/mp4">
-                </video>
-                <img src="/assets/params/images/coming-soon/plyonka-4.png" class="plyonka" alt="">
-                <img src="/assets/params/images/coming-soon/texture-4.png" class="plyonka" alt="">
+
+            <div
+              #videoContainer
+              class="video1-container video-container"
+              [attr.data-z]="zIndexOrder[4]"
+              [ngStyle]="{ 'z-index': zIndexOrder[4], 'transform': 'translate(-50%, -50%) rotate(' + getRotateAngle(zIndexOrder[4]) + ')' }"
+              [class.top-video]="zIndexOrder[4] === 5"
+            >
+              <img src="/assets/params/images/coming-soon/frame.png" class="frame-prodigma" alt="" />
+              <video autoplay loop [muted]="true" class="video-1">
+                <source src="/assets/params/images/coming-soon/video-1.mp4" type="video/mp4" />
+              </video>
+              <img src="/assets/params/images/coming-soon/frame-plyonka.png" class="plyonka" alt="" />
+              <img src="/assets/params/images/coming-soon/frame-texture.png" class="plyonka" alt="" />
             </div>
+            
             <div class="prodigma-org-container">
-                <img src="/assets/params/images/coming-soon/prodigma-org.svg" alt="">
+              <img src="/assets/params/images/coming-soon/prodigma-org.svg" alt="">
+            </div>
+
+            <div class="swap-container">
+              <span class="swap-text">Swap it</span>
+              <img class="circle" src="/assets/params/images/coming-soon/Circle.png" alt="">
+              <img class="arrow" src="/assets/params/images/coming-soon/Arrow.png" alt="">
             </div>
         </div>
     </div>
+
     <div class="section section-2">
       <div class="pins">
         <img src="/assets/params/images/coming-soon/eye-ball.gif" alt="" class="eye">
         <img src="/assets/params/images/coming-soon/plastic.png" alt="" class="plastic">
-        <img src="/assets/params/images/coming-soon/Yazilar.svg" alt="" class="photo-pin">
-
-        <!-- <img src="/assets/params/images/coming-soon/photo-pin.png" alt="" class="photo-pin">
-        <img src="/assets/params/images/coming-soon/video-pin.png" alt="" class="video-pin">
-        <img src="/assets/params/images/coming-soon/design-pin.png" alt="" class="design-pin">
-        <img src="/assets/params/images/coming-soon/dev-pin.png" alt="" class="dev-pin"> -->
+        <img src="/assets/params/images/coming-soon/pins.svg" alt="" class="text-pin">
 
         <img src="/assets/params/images/coming-soon/skoch-1.png" alt="" class="skoch-1">
         <img src="/assets/params/images/coming-soon/skoch-2.png" alt="" class="skoch-2">
         <img src="/assets/params/images/coming-soon/skoch-3.png" alt="" class="skoch-3">
         <img src="/assets/params/images/coming-soon/skoch-4.png" alt="" class="skoch-4">
-
       </div>
     </div>
+
     <div class="section section-3">
         <img src="/assets/params/images/coming-soon/prodigma-pin.png" alt="" class="prodigma-pin">
         <div class="links-container">
@@ -115,4 +155,3 @@
         </div>
     </div>
 </div>
-  
