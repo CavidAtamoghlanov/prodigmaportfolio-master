@@ -10,7 +10,20 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 export class EyeBallPageComponent {
   viewportWidth = window.innerWidth;
   isStyled = false;
+  currentImageSrc = '/assets/params/images/coming-soon/appointment.gif';
   constructor(private el: ElementRef, private renderer: Renderer2) {}
+
+  onMouseEnter() {
+    this.currentImageSrc = '/assets/params/images/coming-soon/appointment-hover.gif';
+  }
+
+  onMouseLeave() {
+    this.currentImageSrc = '/assets/params/images/coming-soon/appointment.gif';
+  }
+
+  onMouseDown() {
+    this.currentImageSrc = '/assets/params/images/coming-soon/appointment-active.gif';
+  }
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
