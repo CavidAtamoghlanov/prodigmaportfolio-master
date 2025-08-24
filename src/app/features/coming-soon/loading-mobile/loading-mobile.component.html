@@ -1,12 +1,14 @@
 @if (componentStates().componentA) { 
     <div class="loading-page" [@fadeInOut]>
-        <video autoplay loop muted>
-            <source src="/assets/params/images/coming-soon/loading-video.mp4" type="video/mp4">
+        <video autoplay loop [muted]="true" class="bg-video">
+            <source src="/assets/params/images/final-assets/desktop-version/videos/prodigmacomingsoon-home-bg-grain.webm" type="video/mp4">
         </video>
         <div class="loading-horse-group-container">   
             <img class="image" alt="" src="/assets/params/images/coming-soon/loading-horse.svg">
             <div class="loading-horse-animation-container">
-                <img class="image2" alt="" src="/assets/params/images/coming-soon/horse-gif.gif">
+                <video autoplay loop [muted]="true" class="image2">
+                    <source src="/assets/params/images/final-assets/desktop-version/gifs/prodigmacomingsoon-loading-horeasnimation-600x500.webm" type="video/mp4">
+                </video>
                 <img id="layer2" src="/assets/params/images/coming-soon/texture.png" alt="">
             </div>
             <div id="loading-percent"></div>

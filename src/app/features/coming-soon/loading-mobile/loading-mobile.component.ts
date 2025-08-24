@@ -25,33 +25,42 @@ export class LoadingMobileComponent implements AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       const layer2 = document.getElementById('layer2') as HTMLElement;
       const loadingText = document.getElementById('loading-percent') as HTMLElement;
-
+  
       if (layer2 && loadingText) {
-        const duration = 2000;
-        let currentLeft = 0;
-        let currentPercentage = 0;
-        const targetLeft = 100;
-        const targetPercentage = 100;
-        const startTime = performance.now();
-
-        const animate = (timestamp: number) => {
-          const elapsedTime = timestamp - startTime;
-          const progress = Math.min(elapsedTime / duration, 1);
-          currentLeft = targetLeft * progress;
-          currentPercentage = Math.floor(targetPercentage * progress);
-
-          layer2.style.left = `${currentLeft}%`;
-          loadingText.textContent = `${currentPercentage} %`;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else{
-            this.componentStates.update((cs) => ({ ...cs, componentA: false, componentB: true }));
-          }
-        };
-
-        requestAnimationFrame(animate);
+        requestAnimationFrame(() => {
+          // ✅ wait one more frame, now layout is guaranteed
+          this.startAnimation(layer2, loadingText);
+        });
       }
     }
   }
+  
+  startAnimation(layer2: HTMLElement, loadingText: HTMLElement) {
+    const duration = 2000;
+    let currentLeft = 0;
+    let currentPercentage = 0;
+    const targetLeft = 100;
+    const targetPercentage = 100;
+    const startTime = performance.now();
+  
+    const animate = (timestamp: number) => {
+      const elapsedTime = timestamp - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+  
+      currentLeft = targetLeft * progress;
+      currentPercentage = Math.floor(targetPercentage * progress);
+  
+      layer2.style.transform = `translateX(${currentLeft}%)`;
+      loadingText.textContent = `${currentPercentage}%`;
+  
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        this.componentStates.update((cs) => ({ ...cs, componentA: false, componentB: true }));
+      }
+    };
+  
+    requestAnimationFrame(animate);
+  }
+  
 }

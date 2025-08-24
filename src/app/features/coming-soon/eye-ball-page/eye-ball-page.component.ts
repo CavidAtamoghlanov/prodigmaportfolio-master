@@ -1,4 +1,5 @@
-import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-eye-ball-page',
@@ -10,19 +11,16 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 export class EyeBallPageComponent {
   viewportWidth = window.innerWidth;
   isStyled = false;
-  currentImageSrc = '/assets/params/images/coming-soon/appointment.gif';
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  onMouseEnter() {
-    this.currentImageSrc = '/assets/params/images/coming-soon/appointment-hover.gif';
-  }
+  currentState: 'normal' | 'hover' | 'clicked' = 'normal';
 
-  onMouseLeave() {
-    this.currentImageSrc = '/assets/params/images/coming-soon/appointment.gif';
-  }
+  setState(state: 'normal' | 'hover' | 'clicked') {
+    this.currentState = state;
 
-  onMouseDown() {
-    this.currentImageSrc = '/assets/params/images/coming-soon/appointment-active.gif';
+    if (state == 'clicked'){
+      window.open('https://tally.so/r/mJxOxR', '_blank');
+    }
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -93,16 +91,16 @@ export class EyeBallPageComponent {
       photoPinTop = 'calc(100vh - 1230px)';
     }
     else if (window.screen.height <= 1080 && window.screen.height > 900) {
-      video5Top = 'calc(100vh - 750px)';
-      devPinTop = 'calc(100vh - 870px)';
-      video4Top = 'calc(100vh - 310px)';
-      logoPinTop = 'calc(100vh - 340px)';
-      video3Top = 'calc(100vh - 320px)';
-      designPinTop = 'calc(100vh - 400px)';
-      video2Top = 'calc(100vh - 550px)';
-      videoPinTop = 'calc(100vh - 600px)';
-      video1Top = 'calc(100vh - 880px)';
-      photoPinTop = 'calc(100vh - 975px)';
+      video5Top = 'calc(100vh - 700px)';
+      devPinTop = 'calc(100vh - 820px)';
+      video4Top = 'calc(100vh - 300px)';
+      logoPinTop = 'calc(100vh - 330px)';
+      video3Top = 'calc(100vh - 310px)';
+      designPinTop = 'calc(100vh - 390px)';
+      video2Top = 'calc(100vh - 500px)';
+      videoPinTop = 'calc(100vh - 550px)';
+      video1Top = 'calc(100vh - 800px)';
+      photoPinTop = 'calc(100vh - 895px)';
     }
     else{
       video5Top = 'calc(100vh - 600px)';
@@ -524,10 +522,6 @@ export class EyeBallPageComponent {
     this.renderer.setStyle(links, 'opacity', '0.7');
     this.renderer.setStyle(comingSoon, 'top', '223px');
     this.renderer.setStyle(appointment, 'opacity', '1');
-  }
-
-  openAppointment(): void {
-    window.open('https://tally.so/r/mJxOxR', '_blank');
   }
   
 }

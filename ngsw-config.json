@@ -7,9 +7,9 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/assets/params/images/final-assets/favicon-pack/favicon.ico",
           "/index.html",
-          "/manifest.webmanifest",
+          "/assets/params/images/final-assets/favicon-pack/site.webmanifest",
           "/*.css",
           "/*.js"
         ]
@@ -17,11 +17,11 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+          "/assets/**/*"
         ]
       }
     }

@@ -1,5 +1,7 @@
-<!-- <app-header></app-header> -->
-<main>
-  <router-outlet></router-outlet>
-</main>
-<!-- <app-footer></app-footer> -->
+@if (isMobile) {
+  <!-- Mobile UI -->
+  <app-loading-mobile />
+} @else {
+  <!-- Desktop UI -->
+  <app-loading-page />
+}
