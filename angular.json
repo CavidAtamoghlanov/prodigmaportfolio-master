@@ -6,20 +6,18 @@
     "ProdigmaPorfolio": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:component": { "style": "scss" }
       },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/prodigma-porfolio",
+            "outputPath": "dist/prodigma-porfolio/browser",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -31,9 +29,8 @@
             ],
             "styles": ["src/styles.scss"],
             "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": { "entry": "src/main.server.ts" }
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -42,7 +39,8 @@
                 { "type": "anyComponentStyle", "maximumWarning": "10kB", "maximumError": "20kB" }
               ],
               "outputHashing": "all",
-              "serviceWorker": "ngsw-config.json"
+              "optimization": true,
+              "sourceMap": false
             },
             "development": {
               "optimization": false,
@@ -58,17 +56,42 @@
           },
           "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular/build:dev-server",
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/prodigma-porfolio/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
           "configurations": {
-            "production": { "buildTarget": "ProdigmaPorfolio:build:production" },
-            "development": { "buildTarget": "ProdigmaPorfolio:build:development" }
+            "production": {}
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "ProdigmaPorfolio:build:production",
+            "serverTarget": "ProdigmaPorfolio:server:production"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ProdigmaPorfolio:build:development"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ProdigmaPorfolio:build:production"
+            }
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": { "builder": "@angular/build:extract-i18n" },
+        "extract-i18n": { "builder": "@angular-devkit/build-angular:extract-i18n" },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
@@ -85,39 +108,18 @@
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
-      }      
+      }
     }
   },
-  "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
-    "analytics": false
-  },
+  "cli": { "schematicCollections": ["@angular-eslint/schematics"], "analytics": false },
   "schematics": {
-    "@schematics/angular:component": {
-      "type": "component"
-    },
-    "@schematics/angular:directive": {
-      "type": "directive"
-    },
-    "@schematics/angular:service": {
-      "type": "service"
-    },
-    "@schematics/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:module": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:resolver": {
-      "typeSeparator": "."
-    }
+    "@schematics/angular:component": { "type": "component" },
+    "@schematics/angular:directive": { "type": "directive" },
+    "@schematics/angular:service": { "type": "service" },
+    "@schematics/angular:guard": { "typeSeparator": "." },
+    "@schematics/angular:interceptor": { "typeSeparator": "." },
+    "@schematics/angular:module": { "typeSeparator": "." },
+    "@schematics/angular:pipe": { "typeSeparator": "." },
+    "@schematics/angular:resolver": { "typeSeparator": "." }
   }
 }
