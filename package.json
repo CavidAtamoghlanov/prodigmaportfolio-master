@@ -1,5 +1,5 @@
 {
-  "name": "prodigma-portfolio",
+  "name": "prodigma-porfolio",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,47 +7,44 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:prodigma-portfolio": "node dist/prodigma-portfolio/server/server.mjs"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
+    "serve:ssr:ProdigmaPorfolio": "node dist/prodigma-porfolio/server/server.mjs"
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^20.2.0",
-    "@angular/compiler": "^20.2.0",
-    "@angular/core": "^20.2.0",
-    "@angular/forms": "^20.2.0",
-    "@angular/platform-browser": "^20.2.0",
-    "@angular/platform-server": "^20.2.0",
-    "@angular/router": "^20.2.0",
-    "@angular/ssr": "^20.2.1",
-    "express": "^5.1.0",
+    "@angular/animations": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/platform-server": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@angular/service-worker": "^19.0.0",
+    "@angular/ssr": "^19.0.2",
+    "@netlify/angular-runtime": "^2.2.0",
+    "express": "^4.18.2",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular/build": "^20.2.1",
-    "@angular/cli": "^20.2.1",
-    "@angular/compiler-cli": "^20.2.0",
-    "@types/express": "^5.0.1",
+    "@angular-devkit/build-angular": "^19.0.2",
+    "@angular/cli": "^19.0.2",
+    "@angular/compiler-cli": "^19.0.0",
+    "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^20.17.19",
-    "jasmine-core": "~5.9.0",
+    "@types/node": "^18.18.0",
+    "angular-eslint": "^18.4.2",
+    "eslint": "^9.15.0",
+    "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.2"
+    "karma-safari-launcher": "^1.0.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.16.0"
   }
 }
