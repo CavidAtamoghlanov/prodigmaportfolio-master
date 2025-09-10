@@ -1,5 +1,4 @@
-import { NgIf } from '@angular/common';
-import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-eye-ball-page',
@@ -9,7 +8,6 @@ import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angu
   styleUrl: './eye-ball-page.component.scss',
 })
 export class EyeBallPageComponent {
-  viewportWidth = window.innerWidth;
   isStyled = false;
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
@@ -18,14 +16,14 @@ export class EyeBallPageComponent {
   setState(state: 'normal' | 'hover' | 'clicked') {
     this.currentState = state;
 
-    if (state == 'clicked'){
+    if (state == 'clicked') {
       window.open('https://tally.so/r/mJxOxR', '_blank');
     }
   }
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
-    if (this.viewportWidth > 1366) {
+    if (window.innerWidth > 1366) {
       if (event.key === 'p' || event.key === 'P') {
         this.changeStyle();
       }
@@ -34,7 +32,7 @@ export class EyeBallPageComponent {
 
   @HostListener('window:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent) {
-    if (this.viewportWidth > 1366) {
+    if (window.innerWidth > 1366) {
       if (event.key === 'p' || event.key === 'P') {
         this.resetStyle();
       }
@@ -43,14 +41,14 @@ export class EyeBallPageComponent {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart() {
-    if (this.viewportWidth <= 1366) {
+    if (window.innerWidth <= 1366) {
       this.changeStyleForTablet();
     }
   }
 
   @HostListener('touchend', ['$event'])
   onTouchEnd() {
-    if (this.viewportWidth <= 1366) {
+    if (window.innerWidth <= 1366) {
       this.resetStyleForTablet();
     }
   }

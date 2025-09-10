@@ -1,5 +1,4 @@
-@if (componentStates().componentA) {
-    <div class="loading-page" [@fadeInOut]>
+    <div class="loading-page" [class.hidden]="!componentStates().componentA" [@fadeInOut]>
         <video autoplay loop [muted]="true" class="bg-video">
             <source src="/assets/params/images/final-assets/desktop-version/videos/prodigmacomingsoon-home-bg-grain.webm" type="video/mp4">
         </video>
@@ -19,8 +18,5 @@
             <p class="inspired-by-the">essence of movement and innovation.</p>
         </div>
     </div>
-}
 
-@if (componentStates().componentB) {
-    <app-eye-ball-page [@fadeInOut]/>
-}
+    <app-eye-ball-page [class.hidden]="!componentStates().componentB" [@fadeInOut]/>
