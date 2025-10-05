@@ -1,27 +1,33 @@
-@if (componentStates().componentA) { 
-    <div class="loading-page" [@fadeInOut]>
-        <video autoplay loop [muted]="true" class="bg-video">
-            <source src="/assets/params/images/final-assets/desktop-version/videos/prodigmacomingsoon-home-bg-grain.webm" type="video/mp4">
-        </video>
-        <div class="loading-horse-group-container">   
-            <img class="image" alt="" src="/assets/params/images/coming-soon/loading-horse.svg">
-            <div class="loading-horse-animation-container">
-                <video autoplay loop [muted]="true" class="image2">
-                    <source src="/assets/params/images/final-assets/desktop-version/gifs/prodigmacomingsoon-loading-horeasnimation-600x500.webm" type="video/mp4">
-                </video>
-                <img id="layer2" src="/assets/params/images/coming-soon/texture.png" alt="">
-            </div>
-            <div id="loading-percent"></div>
-        </div>
-        <div class="inspired-by-the-container">
-            <hr class="custom-top">
-            Inspired by the visionary work of Eadweard Muybridge <br>
-            and his “The Horse in Motion”, we aim to capture the <br>
-            essence of movement and innovation. <br>
-        </div>
-    </div>
-}
+<div class="loading-page" [class.hidden]="!componentStates().componentA">
+    <video autoplay loop [muted]="true" class="bg-video">
+        <source src="/assets/params/images/final-assets/desktop-version/videos/prodigmacomingsoon-home-bg-grain.webm"
+            type="video/webm">
+    </video>
 
-@if (componentStates().componentB) {
-    <app-eye-ball-mobile [@fadeInOut]/>
-}
+    <div class="loading-horse-group-container">
+        <img class="image" alt="" src="/assets/params/images/coming-soon/loading-horse.svg">
+
+        <div class="loading-horse-animation-container">
+            <video autoplay loop [muted]="true" class="image2">
+                <source
+                    src="/assets/params/images/final-assets/desktop-version/gifs/prodigmacomingsoon-loading-horeasnimation-600x500.webm"
+                    type="video/webm">
+            </video>
+
+            <!-- ALWAYS in DOM -->
+            <img #layer2 id="layer2" src="/assets/params/images/coming-soon/texture.png" alt="">
+        </div>
+
+        <!-- ALWAYS in DOM -->
+        <div #loadingPercent id="loading-percent"></div>
+    </div>
+
+    <div class="inspired-by-the-container">
+        <hr class="custom-top">
+        Inspired by the visionary work of Eadweard Muybridge <br>
+        and his “The Horse in Motion”, we aim to capture the <br>
+        essence of movement and innovation. <br>
+    </div>
+</div>
+
+<app-eye-ball-mobile [class.hidden]="!componentStates().componentB"></app-eye-ball-mobile>
