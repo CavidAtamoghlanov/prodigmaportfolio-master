@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { LoadingPageComponent } from './features/coming-soon/loading-page/loading-page.component';
 import { LoadingMobileComponent } from './features/coming-soon/loading-mobile/loading-mobile.component';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
@@ -17,14 +17,24 @@ import { LoadingMobileComponent } from './features/coming-soon/loading-mobile/lo
     styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  isMobile = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private title: Title,
+    private meta: Meta
+  ) {}
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const screenWidth = window.innerWidth;
-      this.isMobile = screenWidth < 768;
-    }
+    this.title.setTitle('Prodigma - Where Vision Meets Innovation');
+
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Prodigma is a full-service creative agency specializing in design, video, photography, and digital development.'
+    });
+
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'index, follow'
+    });
   }
+
 }

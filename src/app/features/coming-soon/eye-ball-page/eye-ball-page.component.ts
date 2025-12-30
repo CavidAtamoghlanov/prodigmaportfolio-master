@@ -39,14 +39,14 @@ export class EyeBallPageComponent {
     }
   }
 
-  @HostListener('touchstart', ['$event'])
+  @HostListener('touchstart')
   onTouchStart() {
     if (window.innerWidth <= 1366) {
       this.changeStyleForTablet();
     }
   }
 
-  @HostListener('touchend', ['$event'])
+  @HostListener('touchend')
   onTouchEnd() {
     if (window.innerWidth <= 1366) {
       this.resetStyleForTablet();
