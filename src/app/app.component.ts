@@ -24,11 +24,12 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Prodigma - Where Vision Meets Innovation');
+    this.title.setTitle('Creative Media Company in Baku | Prodigma');
 
     this.meta.updateTag({
       name: 'description',
-      content: 'Prodigma is a full-service creative agency specializing in design, video, photography, and digital development.'
+      content: `Prodigma is Azerbaijan based creative media company specializing in photo, 
+      video, design and development services. Let’s make a quality product together!`
     });
 
     this.meta.updateTag({
