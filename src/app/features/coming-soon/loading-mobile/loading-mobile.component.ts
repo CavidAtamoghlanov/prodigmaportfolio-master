@@ -1,5 +1,4 @@
-import {  } from '@angular/core';
-import { AfterViewInit, Component, Inject, PLATFORM_ID, signal, ChangeDetectionStrategy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID, ViewChild, signal, ChangeDetectionStrategy } from '@angular/core';
 import { fadeInOutAnimation } from '../../../shared/animations/animation';
 import { isPlatformBrowser } from '@angular/common';
 import { EyeBallMobileComponent } from '../eye-ball-mobile/eye-ball-mobile.component';
@@ -13,45 +12,61 @@ import { EyeBallMobileComponent } from '../eye-ball-mobile/eye-ball-mobile.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [fadeInOutAnimation],
 })
-export class LoadingMobileComponent implements AfterViewInit { 
+export class LoadingMobileComponent implements AfterViewInit {
+  @ViewChild('layer2') layer2Ref!: ElementRef<HTMLElement>;
+  @ViewChild('loadingPercent') loadingPercentRef!: ElementRef<HTMLElement>;
+
   componentStates = signal({
     componentA: true,
     componentB: false,
   });
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  private animationStarted = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      const layer2 = document.getElementById('layer2') as HTMLElement;
-      const loadingText = document.getElementById('loading-percent') as HTMLElement;
+    if (!isPlatformBrowser(this.platformId)) return;
 
-      if (layer2 && loadingText) {
-        const duration = 2000;
-        let currentLeft = 0;
-        let currentPercentage = 0;
-        const targetLeft = 100;
-        const targetPercentage = 100;
-        const startTime = performance.now();
+    // ✅ Wait 2 frames to ensure DOM children are painted
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const layer2 = this.layer2Ref?.nativeElement;
+        const loadingText = this.loadingPercentRef?.nativeElement;
 
-        const animate = (timestamp: number) => {
-          const elapsedTime = timestamp - startTime;
-          const progress = Math.min(elapsedTime / duration, 1);
-          currentLeft = targetLeft * progress;
-          currentPercentage = Math.floor(targetPercentage * progress);
-
-          layer2.style.left = `${currentLeft}%`;
-          loadingText.textContent = `${currentPercentage} %`;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else{
-            this.componentStates.update((cs) => ({ ...cs, componentA: false, componentB: true }));
-          }
-        };
-
-        requestAnimationFrame(animate);
-      }
-    }
+        if (layer2 && loadingText && !this.animationStarted) {
+          this.animationStarted = true;
+          this.startAnimation(layer2, loadingText);
+        }
+      });
+    });
   }
+
+  private startAnimation(layer2: HTMLElement, loadingText: HTMLElement) {
+    const duration = 2000;
+    const targetLeft = 100;
+    const targetPercentage = 100;
+    const startTime = performance.now();
+
+    const animate = (timestamp: number) => {
+      const elapsedTime = timestamp - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+
+      const currentLeft = targetLeft * progress;
+      const currentPercentage = Math.floor(targetPercentage * progress);
+
+      layer2.style.transform = `translateX(${currentLeft}%)`;
+      loadingText.textContent = `${currentPercentage}%`;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        // ✅ Only switch components after animation completes
+        this.componentStates.update(cs => ({ ...cs, componentA: false, componentB: true }));
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }
+
 }

@@ -1,44 +1,41 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { Inject, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-
 import { SharedModule } from './shared/shared.module';
+import { Component, OnInit } from '@angular/core';
+import { LoadingPageComponent } from './features/coming-soon/loading-page/loading-page.component';
+import { LoadingMobileComponent } from './features/coming-soon/loading-mobile/loading-mobile.component';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
     imports: [
         CommonModule,
-        RouterOutlet,
         SharedModule,
+        LoadingPageComponent,
+        LoadingMobileComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'ProdigmaPorfolio';
-  footerUrl = 'https://www.ganatan.com';
-  footerLink = 'www.ganatan.com';
 
   constructor(
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: object) {
-  }
+    private title: Title,
+    private meta: Meta
+  ) {}
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const navMain = this.document.getElementById('navbarCollapse');
-      if (navMain) {
-        navMain.onclick = function onClick() {
-          if (navMain) {
-            navMain.classList.remove("show");
-          }
-        }
-      }
-    }
+    this.title.setTitle('Creative Media Company in Baku | Prodigma');
 
+    this.meta.updateTag({
+      name: 'description',
+      content: `Prodigma is Azerbaijan based creative media company specializing in photo, 
+      video, design and development services. Let’s make a quality product together!`
+    });
+
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'index, follow'
+    });
   }
 
 }
-

@@ -1,24 +1,33 @@
-@if (componentStates().componentA) {
-    <div class="loading-page" [@fadeInOut]>
-        <video autoplay loop muted>
-            <source src="/assets/params/images/coming-soon/loading-video.mp4" type="video/mp4">
-        </video>
-        <div class="loading-horse-group-container">   
-            <img class="image" alt="" src="/assets/params/images/coming-soon/loading-horse.svg">
-            <div class="loading-horse-animation-container">
-                <img class="image2" alt="" src="/assets/params/images/coming-soon/horse-gif.gif">
-                <img id="layer2" src="/assets/params/images/coming-soon/texture.png" alt="">
-            </div>
-            <div id="loading-percent"></div>
-        </div>
-        <div class="inspired-by-the-container">
-            <p class="inspired-by-the">Inspired by the visionary work of Eadweard Muybridge </p>
-            <p class="inspired-by-the">and his “The Horse in Motion”, we aim to capture the </p>
-            <p class="inspired-by-the">essence of movement and innovation.</p>
-        </div>
-    </div>
-}
+<div class="loading-page" [class.hidden]="!componentStates().componentA">
+  <video autoplay loop [muted]="true" class="bg-video">
+    <source src="/assets/params/images/final-assets/desktop-version/videos/prodigmacomingsoon-home-bg-grain.webm"
+      type="video/webm">
+  </video>
 
-@if (componentStates().componentB) {
-    <app-eye-ball-page [@fadeInOut]/>
-}
+  <div class="loading-horse-group-container">
+    <img class="image" alt="" src="/assets/params/images/coming-soon/loading-horse.svg">
+
+    <div class="loading-horse-animation-container">
+      <video autoplay loop [muted]="true" class="image2">
+        <source
+          src="/assets/params/images/final-assets/desktop-version/gifs/prodigmacomingsoon-loading-horeasnimation-600x500.webm"
+          type="video/webm">
+      </video>
+
+      <!-- ALWAYS in DOM -->
+      <img #layer2 id="layer2" src="/assets/params/images/coming-soon/texture.png" alt="">
+    </div>
+
+    <!-- ALWAYS in DOM -->
+    <div #loadingPercent id="loading-percent"></div>
+  </div>
+
+  <div class="inspired-by-the-container">
+    <p class="inspired-by-the">Inspired by the visionary work of Eadweard Muybridge</p>
+    <p class="inspired-by-the">and his “The Horse in Motion”, we aim to capture the</p>
+    <p class="inspired-by-the">essence of movement and innovation.</p>
+  </div>
+</div>
+
+<!-- Eye-ball page -->
+<app-eye-ball-page [class.hidden]="!componentStates().componentB"></app-eye-ball-page>
