@@ -9,6 +9,8 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 })
 export class EyeBallPageComponent {
   isStyled = false;
+  readonly currentYear = new Date().getFullYear();
+
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   currentState: 'normal' | 'hover' | 'clicked' = 'normal';

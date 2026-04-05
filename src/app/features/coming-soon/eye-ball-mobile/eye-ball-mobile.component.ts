@@ -12,6 +12,8 @@ import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, E
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EyeBallMobileComponent implements AfterViewInit {
+  readonly currentYear = new Date().getFullYear();
+  
   @ViewChildren('videoContainer', { read: ElementRef }) videoContainers!: QueryList<ElementRef<HTMLDivElement>>;
   topVideoRef!: ElementRef<HTMLDivElement>;
 
